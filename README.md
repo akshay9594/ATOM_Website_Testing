@@ -36,6 +36,7 @@ various directories has also been provided.
     Install the required python packages using pip or pip3 package manager,
     Using the command:
     ```
+    cd test_dynamic_website
     pip3 install -r requirements.txt
     ```
     ***Note: A package that is not listed but requried is "BeautifulSoup4".
