@@ -7,14 +7,14 @@ various directories has also been provided.
 
 ## Dependencies
 
-1. Software level
-(a) Python 3.0 and above
+1. Software level\
+(a) Python 3.0 and above\
 (b) Google Chrome
 
-2. Python packages
-(a) Selenium
-(b) bs4
-(c) requests
+2. Python packages\
+(a) Selenium\
+(b) bs4\
+(c) requests\
 (d) html_table_parser
 
 ## Directory Structure
@@ -36,27 +36,23 @@ Directories and what they contain:
 Install the required python packages using pip or pip3 package manager,
 Using the command:
 
-    ```javascript
     pip3 install -r requirements.txt
-    ```
+
 ***Note: A package that is not listed but requried is "BeautifulSoup4".
 The reason it is not listed is that installing through the text file
 creates issues which are yet to be understood (possibly conflicts with the pacakge
 html_table_parser). Install this package after installing the packages within
 requirements.txt as follows:
 
-    ```javascript
     pip3 install bs4
-    ```
 
 ## Running the scripts and testing
 
 The master script is the "dynamic_scrape_and_test.py" script. Run this script
 using the following command: 
    
-   ```javascript
     python3 dynamic_scrape_and_test.py
-   ```
+
 
 An interactive menu opens prompting the user to choose the property to test for.
 Choose a property by entering the appropriate number. Once a selection is made
@@ -65,7 +61,7 @@ the testing initiates.
 For more details about the mismatched data, run the master script using the flag
 "-v" as follows:
 
-python3 dynamic_scrape_and_test.py -v
+    python3 dynamic_scrape_and_test.py -v
 
 
 Note: The ground truth and test data have already been downloaded and placed in
