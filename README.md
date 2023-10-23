@@ -5,7 +5,7 @@ This README provides instructions on how to run the scripts to test
 Version 3 against Version 2 of the website. Details about the 
 various directories has also been provided.
 
-# Dependencies
+## Dependencies
 
 1. Software level
     (a) Python 3.0 and above
@@ -17,7 +17,7 @@ various directories has also been provided.
     (c) requests
     (d) html_table_parser
 
-# Directory Structure
+## Directory Structure
 
     Directories and what they contain:
     1. Data - Stores all the downloaded data (Ground truth and Test)
@@ -31,12 +31,12 @@ various directories has also been provided.
 
     4. root directory - Contains the master script and some utility scripts
 
-# Installing Python packages
+## Installing Python packages
 
-    Install the required python packages using pip or pip3 package manager:
-
+    Install the required python packages using pip or pip3 package manager,
+    Using the command:
     ```
-    pip3 install requirements.txt
+    pip3 install -r requirements.txt
     ```
     ***Note: A package that is not listed but requried is "BeautifulSoup4".
     The reason it is not listed is that installing through the text file
@@ -44,10 +44,10 @@ various directories has also been provided.
     html_table_parser). Install this package after installing the packages within
     requirements.txt as follows:
     ```
-        pip3 install bs4
+    pip3 install bs4
     ```
 
-# Running the scripts and testing
+## Running the scripts and testing
 
     The master script is the "dynamic_scrape_and_test.py" script. Run this script
     using the following command: 
@@ -69,7 +69,7 @@ various directories has also been provided.
           scripts. Going forward every run of the master script will open the ground
           truth and test websites and download the requried data.
 
-# Constraints (As of Now)
+## Constraints (As of Now)
 
 1. The element to be tested is set to "Li" within the master script. 
 
