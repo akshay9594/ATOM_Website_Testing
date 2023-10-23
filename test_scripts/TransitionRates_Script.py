@@ -5,12 +5,7 @@ from fetch_Gnd_Truth_Data.TransitionRates_Data import Get_TransitionRates_GndTru
 from atom_charges import atom_charge
 import os , ast
 
-
-
-
 def Perform_Testing(gnd_truth_data:dict,test_data:dict,verbosity):
-
-    
 
     if(len(gnd_truth_data.keys()) == len(test_data.keys())):
  
@@ -78,6 +73,7 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,verbosity):
                 print(state_from,"\t",state_to,"\t\t",mismatched_row[2])
 
             print("==================================================================================")
+            
             print("Mismatched Transition Rates data:")
             print("From\tTo\t\tMismatched strings (Not displayed as in version 2)")
             for mismatched_row in mismatched_transitionRates_data:

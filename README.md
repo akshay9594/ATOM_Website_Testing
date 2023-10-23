@@ -40,8 +40,9 @@ various directories has also been provided.
     ```
     ***Note: A package that is not listed but requried is "BeautifulSoup4".
     The reason it is not listed is that installing through the text file
-    creates issues which are yet to be understood. Install this package
-    separately as follows:
+    creates issues which are yet to be understood (possibly conflicts with the pacakge
+    html_table_parser). Install this package after installing the packages within
+    requirements.txt as follows:
     ```
         pip3 install bs4
     ```
@@ -63,6 +64,10 @@ various directories has also been provided.
         python3 dynamic_scrape_and_test.py -v
     ```
 
+    Note: The ground truth and test data have already been downloaded and placed in
+          the "Data" directory. This is just to save time for testing of these
+          scripts. Going forward every run of the master script will open the ground
+          truth and test websites and download the requried data.
 
 # Constraints (As of Now)
 
