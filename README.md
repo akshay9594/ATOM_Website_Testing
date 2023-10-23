@@ -35,7 +35,8 @@ various directories has also been provided.
 
     Install the required python packages using pip or pip3 package manager,
     Using the command:
-    ```python
+
+    ```javascript
     pip3 install -r requirements.txt
     ```
     ***Note: A package that is not listed but requried is "BeautifulSoup4".
@@ -43,7 +44,8 @@ various directories has also been provided.
     creates issues which are yet to be understood (possibly conflicts with the pacakge
     html_table_parser). Install this package after installing the packages within
     requirements.txt as follows:
-    ```
+
+    ```javascript
     pip3 install bs4
     ```
 
@@ -51,16 +53,19 @@ various directories has also been provided.
 
     The master script is the "dynamic_scrape_and_test.py" script. Run this script
     using the following command: 
-    ```
+   
+   ```javascript
     python3 dynamic_scrape_and_test.py
-    ```
+   ```
+
     An interactive menu opens prompting the user to choose the property to test for.
     Choose a property by entering the appropriate number. Once a selection is made
     the testing initiates.
 
     For more details about the mismatched data, run the master script using the flag
     "-v" as follows:
-    ```
+
+    ```javascript
     python3 dynamic_scrape_and_test.py -v
     ```
 
