@@ -36,7 +36,7 @@ various directories has also been provided.
     Install the required python packages using pip or pip3 package manager:
 
     ```
-        pip3 install requirements.txt
+    pip3 install requirements.txt
     ```
     ***Note: A package that is not listed but requried is "BeautifulSoup4".
     The reason it is not listed is that installing through the text file
@@ -52,7 +52,7 @@ various directories has also been provided.
     The master script is the "dynamic_scrape_and_test.py" script. Run this script
     using the following command: 
     ```
-        python3 dynamic_scrape_and_test.py
+    python3 dynamic_scrape_and_test.py
     ```
     An interactive menu opens prompting the user to choose the property to test for.
     Choose a property by entering the appropriate number. Once a selection is made
@@ -61,7 +61,7 @@ various directories has also been provided.
     For more details about the mismatched data, run the master script using the flag
     "-v" as follows:
     ```
-        python3 dynamic_scrape_and_test.py -v
+    python3 dynamic_scrape_and_test.py -v
     ```
 
     Note: The ground truth and test data have already been downloaded and placed in
