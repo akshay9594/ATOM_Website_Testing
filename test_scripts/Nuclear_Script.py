@@ -7,7 +7,7 @@ from fetch_Gnd_Truth_Data.Nuclear_Data import Get_Nuclear_data
 import os,ast
 
 
-
+#Performs the actual testing. String match for now.
 def perform_testing(gnd_truth_table:list, test_table:list, verbosity):
 
     Mismatched_Rows = []
@@ -21,9 +21,13 @@ def perform_testing(gnd_truth_table:list, test_table:list, verbosity):
         print("No Mismatches between the test and ground truth tables")
     else:
         if(verbosity == '-v'):
-            print("Gnd Truth\t\tTest\t\tMismatches(Not displayed as in version 2)")
-            for row in Mismatched_Rows:
-                print(row[0],"\t",row[1],"\t",row[2])
+            directory = os.getcwd() + '/reports'
+            report_path = os.path.join(directory, 'Nuclear_report.txt')
+
+            with open(report_path, 'w') as file: 
+                file.write("Gnd Truth\t\tTest\t\tMismatches(Not displayed as in version 2)")
+                for row in Mismatched_Rows:
+                    file.write("\n"+str(row[0])+"\t"+str(row[1])+"\t"+str(row[2]))
         else:
             print("There are ", len(Mismatched_Rows), " number of mismatched rows")
 
@@ -67,6 +71,5 @@ def test_NuclearData(atom,driver,gnd_truth_url,verbosity):
         with open(file_path, 'w') as file: 
             file.write(str(test_data_tables))
 
-    print("\n==============================Results=====================================")
     perform_testing(gnd_truth_data_tables,test_data_tables,verbosity)
-    print("==========================================================================\n")
+    print("Test Complete!Report Generated...")

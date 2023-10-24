@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 
 # for parsing all the tables present
-# on the website
+# on the websites
 from html_table_parser.parser import HTMLTableParser
 
 def static_page_scrapper(atom,url, gnd_truth_version,data_type): 

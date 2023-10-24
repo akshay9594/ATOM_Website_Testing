@@ -69,6 +69,12 @@ Note: The ground truth and test data have already been downloaded and placed in
     scripts. Going forward every run of the master script will open the ground
     truth and test websites and download the requried data.
 
+## Generation of Test Reports
+
+Test reports are generated when the "-v" flag is used when executing the master
+script. The generated reports are placed in the "reports" directory. The naming
+convention used for the reports is *property*_report.txt.
+
 ## Constraints (As of Now)
 
 1. The element to be tested is set to "Li" within the master script. 

@@ -1,0 +1,2 @@
+Gnd Truth				Test				Mismatches(Not displayed as in version 2)
+['State', 'Energy (cm -1 ) info']	['State', 'Energy (cm-1)\ninfo']	{'Energy (cm -1 ) info'}

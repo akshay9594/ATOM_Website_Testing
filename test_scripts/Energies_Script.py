@@ -8,9 +8,11 @@ from fetch_Gnd_Truth_Data.Energies_Data import Get_Energies_data
 import os,ast
 
 
+#Performs the actual testing.
 def perform_testing(gnd_truth_table:list, test_table:list, verbosity):
 
     Mismatched_Rows = []
+    # Going state by state and fetching the correct test and ground truth row 
     for test_row in test_table:
         test_state = test_row[0]
         for gnd_truth_row in gnd_truth_table:
@@ -22,15 +24,20 @@ def perform_testing(gnd_truth_table:list, test_table:list, verbosity):
                     Mismatched_Rows.append([gnd_truth_row,test_row,diff])
 
 
-    if(len(Mismatched_Rows)==0):
-        print("No Mismatches between the test and ground truth tables")
-    else:
-        if(verbosity == '-v'):
-            print("Gnd Truth\t\t\t\tTest\t\t\t\tMismatches(Not displayed as in version 2)")
-            for row in Mismatched_Rows:
-                print(row[0],"\t",row[1],"\t",row[2])
+    directory = os.getcwd() + '/reports'
+    report_path = os.path.join(directory, 'Energies_report.txt')
+
+    with open(report_path, 'w') as file: 
+
+        if(len(Mismatched_Rows)==0):
+            file.write("No Mismatches between the test and ground truth tables")
         else:
-            print("There are ", len(Mismatched_Rows), " number of mismatched rows")
+            if(verbosity == '-v'):
+                file.write("Gnd Truth\t\t\t\tTest\t\t\t\tMismatches(Not displayed as in version 2)")
+                for row in Mismatched_Rows:
+                    file.write("\n"+str(row[0])+"\t"+str(row[1])+"\t"+str(row[2]))
+            else:
+                file.write("There are ", len(Mismatched_Rows), " number of mismatched rows")
 
     
 
@@ -50,6 +57,7 @@ def test_EnergiesData(atom,driver,gnd_truth_url,verbosity):
     #Get the ground truth
     gnd_truth_data_tables = Get_Energies_data(atom,gnd_truth_url)
 
+    #Set the path to the directory to store the downloaded data files
     directory = os.getcwd() + '/Data/Energies'
 
     test_file = atom+'test'+'.txt'
@@ -72,4 +80,6 @@ def test_EnergiesData(atom,driver,gnd_truth_url,verbosity):
         with open(file_path, 'w') as file: 
             file.write(str(test_data_tables))
     
+    #Perform the testing
     perform_testing(gnd_truth_data_tables,test_data_tables,verbosity)
+    print("Test Complete!Report Generated...")

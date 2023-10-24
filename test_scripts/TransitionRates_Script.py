@@ -5,6 +5,7 @@ from fetch_Gnd_Truth_Data.TransitionRates_Data import Get_TransitionRates_GndTru
 from atom_charges import atom_charge
 import os , ast
 
+#Performs the actual testing
 def Perform_Testing(gnd_truth_data:dict,test_data:dict,verbosity):
 
     if(len(gnd_truth_data.keys()) == len(test_data.keys())):
@@ -40,6 +41,7 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,verbosity):
 
             test_transitionRates_data = test_data_tables[1][1:]
 
+            #Test the radiative lifetimes data. Also checks if theres missing data
             if(len(gndTruth_radiativeLifetimes_data) == len(test_radiativeLiftimes_data)):   
 
                 diff = set(gndTruth_radiativeLifetimes_data).difference(set(test_radiativeLiftimes_data))
@@ -50,6 +52,7 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,verbosity):
                 States_With_Missing_RadiativeLiftimes_data.append(state)
 
 
+            #Test the transition rates data
             if(len(gndTruth_transitionRates_data) == len(test_transitionRates_data)):
 
                 for test_row in test_transitionRates_data:
@@ -64,24 +67,29 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,verbosity):
             else:
                 States_With_Missing_TransitionRates_data.append(state)
 
+        # Provide details if verbosity is enabled
         if(verbosity == '-v'):
-            print("Mismatched Radiative Lifetimes data:")
-            print("From\tTo\t\tMismatched strings (Not displayed as in version 2)")
-            for mismatched_row in mismatched_radiativeLifetimes_data:
-                state_from = mismatched_row[0]
-                state_to = mismatched_row[1]
-                print(state_from,"\t",state_to,"\t\t",mismatched_row[2])
+            directory = os.getcwd() + '/reports'
+            report_path = os.path.join(directory, 'TransitionRates_report.txt')
 
-            print("==================================================================================")
-            
-            print("Mismatched Transition Rates data:")
-            print("From\tTo\t\tMismatched strings (Not displayed as in version 2)")
-            for mismatched_row in mismatched_transitionRates_data:
-                state_from = mismatched_row[0]
-                state_to = mismatched_row[1]
-                diff = mismatched_row[2]
+            with open(report_path, 'w') as file: 
+                file.write("Mismatched Radiative Lifetimes data:")
+                file.write("\nFrom\tTo\t\tMismatched strings (Not displayed as in version 2)")
+                for mismatched_row in mismatched_radiativeLifetimes_data:
+                    state_from = mismatched_row[0]
+                    state_to = mismatched_row[1]
+                    file.write("\n"+state_from+"\t"+state_to+"\t\t"+str(mismatched_row[2]))
 
-                print(state_from,"\t",state_to,"\t\t",diff)
+                file.write("\n==================================================================================\n")
+                
+                file.write("\nMismatched Transition Rates data:")
+                file.write("\nFrom\tTo\t\tMismatched strings (Not displayed as in version 2)")
+                for mismatched_row in mismatched_transitionRates_data:
+                    state_from = mismatched_row[0]
+                    state_to = mismatched_row[1]
+                    diff = mismatched_row[2]
+
+                    file.write("\n"+state_from+"\t"+state_to+"\t\t"+str(diff))
         else:
             print("Total no. of mismatched Radiative lifetimes rows: ", len(mismatched_radiativeLifetimes_data))
             print("Total no. of mismatched Transition Rates rows: ", len(mismatched_transitionRates_data))
@@ -95,7 +103,6 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,verbosity):
         
         
         
-    #Get_RadiativeLifeTimes_test_data(test_data_values)
 
 def fetch_test_data_tables(driver,test_url,file_path):
      # load the web page
@@ -103,6 +110,7 @@ def fetch_test_data_tables(driver,test_url,file_path):
 
     driver.implicitly_wait(10)
 
+    #Get all the buttons
     btns_grid_list = driver.find_elements(By.XPATH,"//div[contains(@class, 'flex ml-4')]")
 
     btns_grid_text = btns_grid_list[1].text
@@ -112,8 +120,7 @@ def fetch_test_data_tables(driver,test_url,file_path):
 
     TransitionRates_data_tables = {}
 
-    #displayed_btns_lst = ['3s1/2']                                   #Downloading data for 1 btn!!Temporary for testing!! Needs to be removed
-
+    #Start clicking the buttons and reproducing the tables
     for btn in displayed_btns_lst:
         btn_chars = list((btn.split("/"))[0])
         btn_chars.pop()
@@ -136,6 +143,7 @@ def fetch_test_data_tables(driver,test_url,file_path):
             
             analyzed_btns_states.append(btn_state)
 
+    #Write the test tables to the file
     with open(file_path, 'w') as file: # saves modified html doc
         file.write(str(TransitionRates_data_tables))        
 
@@ -146,18 +154,20 @@ def fetch_test_data_tables(driver,test_url,file_path):
 def test_TransitionRatesData(atom,driver,gnd_truth_url,verbosity):
     # Define the URL (Transition rates url for Li1)
     atom = atom + str(atom_charge("Li"))
-     # Define the URL (Transition rates url for Li1)
     test_url = "https://www1.udel.edu/atom/dev/version3/transition?element="+atom
 
+    # Get the Ground truth data
+    gndTruth_TR_data_tables = Get_TransitionRates_GndTruth_Data(atom,gnd_truth_url)
+
+    #Set the path for the test file to be written to
     directory = os.getcwd() + '/Data/TransitionRates'
 
     test_file = atom+'test'+'.txt'
 
     file_path = os.path.join(directory, test_file)
 
-    gndTruth_TR_data_tables = Get_TransitionRates_GndTruth_Data(atom,gnd_truth_url)
-
     test_data_tables = ''
+    #Fetch the test data tables
     if(os.path.exists(file_path)):                      #Temporary for testing!! Needs to be removed
         f = open(file_path)
         test_data_tables = f.read()
@@ -166,6 +176,7 @@ def test_TransitionRatesData(atom,driver,gnd_truth_url,verbosity):
 
     test_data = ast.literal_eval(test_data_tables)
     
-    print("\n==============================Results=====================================")
+    #Perform the actual testing
+   
     Perform_Testing(gndTruth_TR_data_tables, test_data,verbosity)
-    print("==========================================================================\n")
+    print("Test Complete!!Report Generated...")
