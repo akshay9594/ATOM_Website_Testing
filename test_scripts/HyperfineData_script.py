@@ -22,7 +22,7 @@ def process_test_tables(test_tables:list):
     return test_tables
 
 #Performs the actual testing. (Column titles not matched)
-def perform_testing(gndTruth_Column_titles, gndTruth_table, test_Column_titles, test_table):
+def perform_testing(gndTruth_Column_titles, gndTruth_table, test_Column_titles, test_table,path_to_reports_dir):
 
     mismatched_data = []
     empty_rows = 0
@@ -47,8 +47,7 @@ def perform_testing(gndTruth_Column_titles, gndTruth_table, test_Column_titles, 
                 mismatched_data.append([state,diff])
 
 
-    directory = os.getcwd() + '/reports'
-    report_path = os.path.join(directory, 'Hyperfine_report.txt')
+    report_path = os.path.join(path_to_reports_dir, 'Hyperfine_report.txt')
 
     with open(report_path, 'w') as file: 
         file.write("There are " + str(empty_rows)+" number of empty rows in the test data\nMismatched data:\n")
@@ -60,14 +59,13 @@ def perform_testing(gndTruth_Column_titles, gndTruth_table, test_Column_titles, 
                 file.write("\n"+str(mismatched_row[0])+"\t\t\t"+str(mismatched_row[1]))
 
 
-def test_HyperfineData(atom,driver,gnd_truth_url,verbosity):
+def test_HyperfineData(element,driver,gnd_truth_url,path_to_reports_dir):
  
-    atom = atom + str(atom_charge("Li"))
      # Define the Test URL (Version 3)
-    test_url = "https://www1.udel.edu/atom/dev/version3/hyperfine?element="+atom
+    test_url = "https://www1.udel.edu/atom/dev/version3/hyperfine?element="+element
 
     #Fetch the ground truth data: Version 2 data
-    gndTruth_Table_Columns_titles, gndTruth_Table = Get_Hyperfine_data(atom,gnd_truth_url)
+    gndTruth_Table_Columns_titles, gndTruth_Table = Get_Hyperfine_data(element,gnd_truth_url)
 
     # load the web page
     driver.get(test_url)
@@ -77,7 +75,7 @@ def test_HyperfineData(atom,driver,gnd_truth_url,verbosity):
     #Set the path to the directory to store the data files
     directory = os.getcwd() + '/Data/Hyperfine'
 
-    test_file = atom+'test'+'.txt'
+    test_file = element+'test'+'.txt'
 
     file_path = os.path.join(directory, test_file)
     
@@ -91,14 +89,18 @@ def test_HyperfineData(atom,driver,gnd_truth_url,verbosity):
          #Fetch the tables from the test version: Version 3
         test_table_column_titles = Reproduce_Column_titles(driver)
         test_data_tables = Reproduce_Data(driver)
+        if(test_table_column_titles==[] or test_data_tables==[]):
+            print("Test Data not available!Property not tested...")
+            return
+
         with open(file_path, 'w') as file: 
             file.write(str(test_data_tables))
 
     test_data_tables = process_test_tables(test_data_tables)
 
     
-    perform_testing(gndTruth_Table_Columns_titles,gndTruth_Table,test_table_column_titles,test_data_tables)
-    print("Test Complete!!Report Generated...\n")
+    perform_testing(gndTruth_Table_Columns_titles,gndTruth_Table,test_table_column_titles,test_data_tables,path_to_reports_dir)
+    print("Test Complete!!Report Generated...")
    
 
     

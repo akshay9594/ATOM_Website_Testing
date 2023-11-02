@@ -3,8 +3,12 @@ from selenium.webdriver.common.by import By
 
 #Function to scrape table column titles from the HTML
 def Reproduce_Column_titles(driver):
-    column_titles = driver.find_elements(By.TAG_NAME, "th")
     reproduced_titles = []
+    try:
+        column_titles = driver.find_elements(By.TAG_NAME, "th")
+    except:
+        return reproduced_titles
+    
     if(len(column_titles)>0):
         for title in column_titles:
             reproduced_titles.append(title.text)
@@ -12,8 +16,12 @@ def Reproduce_Column_titles(driver):
 
 #Function to scrape the data within table columns from the HTML
 def Reproduce_Data(driver):
-    rows = driver.find_elements(By.TAG_NAME, "tr")
     reproduced_data = []
+    try:
+        rows = driver.find_elements(By.TAG_NAME, "tr")
+    except:
+        return reproduced_data
+    
     for row in rows:
     #print ii.tag_name
         cols = row.find_elements(By.TAG_NAME, "td")

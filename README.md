@@ -53,15 +53,8 @@ using the following command:
    
     python3 dynamic_scrape_and_test.py
 
-
-An interactive menu opens prompting the user to choose the property to test for.
-Choose a property by entering the appropriate number. Once a selection is made
-the testing initiates.
-
-For more details about the mismatched data, run the master script using the flag
-"-v" as follows:
-
-    python3 dynamic_scrape_and_test.py -v
+Data for all properties are tested for an element. Currently the list of elements in
+hard-coded.
 
 
 Note: The ground truth and test data have already been downloaded and placed in
@@ -71,8 +64,8 @@ Note: The ground truth and test data have already been downloaded and placed in
 
 ## Generation of Test Reports
 
-Test reports are generated when the "-v" flag is used when executing the master
-script. The generated reports are placed in the "reports" directory. The naming
+Test reports are generated when the master script is executed. 
+The generated reports are placed in the reports->*element_name* directory. The naming
 convention used for the reports is *property*_report.txt.
 
 ## Constraints (As of Now)

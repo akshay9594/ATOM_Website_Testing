@@ -7,9 +7,9 @@ from test_scripts.TransitionRates_Script import test_TransitionRatesData
 from test_scripts.HyperfineData_script import test_HyperfineData
 from test_scripts.Nuclear_Script import test_NuclearData
 from test_scripts.Energies_Script import test_EnergiesData
+from atom_charges import atom_charge
 
-
-import sys
+import sys,os
 
 
 gnd_truth_url = 'https://www1.udel.edu/atom/'
@@ -19,6 +19,34 @@ if(len(sys.argv)>1):
     verbosity = sys.argv[1]
 
 element = "Li"
+element = element + str(atom_charge(element))
+
+path_to_reports_dir = os.getcwd() + '/reports/' + element
+
+if(os.path.exists(path_to_reports_dir) == False):
+    os.mkdir(path_to_reports_dir)
+
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+print("Testing Results for",element,":")
+print("1. Matrix Elements")
+test_MatrixElementData(element,driver,gnd_truth_url,path_to_reports_dir)
+
+print("\n2. Transition Rates")
+test_TransitionRatesData(element,driver,gnd_truth_url,path_to_reports_dir)
+
+print("\n3. Hyperfine Constants")
+test_HyperfineData(element,driver,gnd_truth_url,path_to_reports_dir)
+
+print("\n4. Nuclear")
+test_NuclearData(element,driver,gnd_truth_url,path_to_reports_dir)
+
+print("\n5. Energies")
+test_EnergiesData(element,driver,gnd_truth_url,path_to_reports_dir)
+
+driver.close()
+
+sys.exit()
 
 
 selection = input("Select property to test:\n1. Transition Rates\n2. Matrix Elements\n3. Hyperfine Constants \
