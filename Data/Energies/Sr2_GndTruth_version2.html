@@ -112,8 +112,7 @@
       buttons: [
           {
             extend: 'excelHtml5',
-            messageTop: 'Wavelengths are calculated using the NIST ASD database energies , unless marked with *',
-            filename: 'Na1HyperfineData',
+            filename: 'Sr2Energies',
               customizeData: function(data) {
                 for(var i = 0; i < data.body.length; i++) {
                   // j goes through columns. skip first 2 (initial, final)
@@ -133,8 +132,10 @@
               }
 
           },
+          
           {
-              extend: 'csv'
+              extend: 'csv', 
+              filename: 'Sr2Energies',
           },
           {
             extend: 'print'
@@ -144,6 +145,9 @@
     });
 $('.button_export_excel').click(() => {
     $('#htmltable3').DataTable().buttons(0,0).trigger()
+});
+$('.button_export_csv').click(() => {
+    $('#htmltable3').DataTable().buttons(0,1).trigger()
 });
 
 
@@ -388,9 +392,8 @@ body {
         text-decoration: none;
     }
 
-
     a.btn2{
-        color: white;
+        color: white; 
         background: #299542; 
         -webkit-appearance: none;
     }
@@ -405,7 +408,7 @@ body {
   appearance: none;
   }
 
-.button_export_excel, .print-btn {
+.button_export_excel,.button_export_csv, .print-btn  {
   background-color: rgba(0, 191, 255, 1);
   border: none;
   color: white;
@@ -416,16 +419,16 @@ body {
   border-radius: 5px;
 }
 
-.print-btn:hover, .button_export_excel:hover {
+.print-btn:hover,.button_export_csv:hover, .button_export_excel:hover {
   background-color: DodgerBlue;
 }
 
-.disabled {
+ .disabled {
         
         background-color: #bbd9ff;
         }
 /* Darker background on mouse-over */
-
+.
 
 
 
@@ -435,6 +438,13 @@ table#htmltable3 {
 
 td{
     text-align: center;
+}
+th{
+  font-size:13.0pt!important;
+  color: white!important; 
+  font-weight:400!important; 
+  font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw!important;
+  background-color: #5b89c3!important;
 }
        </style>
        <style>
@@ -451,7 +461,10 @@ td{
 }
        </style>
        <style>
-        .navbar2 {
+        .navbar-dark {
+            background-color: #113c71;
+        }
+    .navbar2 {
         padding: 3px 0; 
         width: 100%;
         max-width: 100%;
@@ -463,7 +476,6 @@ td{
         justify-content: center;
         
     }
-
 .main-logo {
   flex: 1 0 0;
   text-align: center;
@@ -538,19 +550,6 @@ td{
 
 
 }
-
-/* The background color of the navbar */
-.navbar-dark {
-    background-color: #113c71;
-}
-
-th{
-  font-size:13.0pt!important;
-  color: white!important; 
-  font-weight:400!important; 
-  font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw!important;
-  background-color: #5b89c3!important;
-}
        </style>
        <style>
         /* sets the color of the background of the popup */
@@ -589,7 +588,7 @@ document. getElementById("htmltable").style.display="none";
 }
        </script>
        <title>
-        Na
+        Sr+ energies
        </title>
       </link>
      </link>
@@ -655,121 +654,121 @@ document. getElementById("htmltable").style.display="none";
          Elements
         </a>
         <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-primary">
-         <a class="dropdown-item" href="Li1Hyperfine.html">
+         <a class="dropdown-item" href="Li1Energies.html">
           Li
          </a>
-         <a class="dropdown-item" href="Na1Hyperfine.html">
+         <a class="dropdown-item" href="Na1.html">
           Na
          </a>
-         <a class="dropdown-item" href="K1Hyperfine.html">
+         <a class="dropdown-item" href="K1.html">
           K
          </a>
-         <a class="dropdown-item" href="Rb1Hyperfine.html">
+         <a class="dropdown-item" href="Rb1Energies.html">
           Rb
          </a>
-         <a class="dropdown-item" href="Cs1Hyperfine.html">
+         <a class="dropdown-item" href="Cs1.html">
           Cs
          </a>
-         <a class="dropdown-item" href="Fr1Hyperfine.html">
+         <a class="dropdown-item" href="Fr1Energies.html">
           Fr
          </a>
-         <a class="dropdown-item" href="Be2Hyperfine.html">
+         <a class="dropdown-item" href="Be2Energies.html">
           Be
           <sup>
            +
           </sup>
          </a>
-         <a class="dropdown-item" href="Mg2Hyperfine.html">
+         <a class="dropdown-item" href="Mg2Energies.html">
           Mg
           <sup>
            +
           </sup>
          </a>
-         <a class="dropdown-item" href="Ca2Hyperfine.html">
+         <a class="dropdown-item" href="Ca2Energies.html">
           Ca
           <sup>
            +
           </sup>
          </a>
-         <a class="dropdown-item" href="Sr2Hyperfine.html">
+         <a class="dropdown-item" href="Sr2Energies.html">
           Sr
           <sup>
            +
           </sup>
          </a>
-         <a class="dropdown-item" href="Ba2Hyperfine.html">
+         <a class="dropdown-item" href="Ba2Energies.html">
           Ba
           <sup>
            +
           </sup>
          </a>
-         <a class="dropdown-item" href="Ra2Hyperfine.html">
+         <a class="dropdown-item" href="Ra2Energies.html">
           Ra
           <sup>
            +
           </sup>
          </a>
-         <a class="dropdown-item" href="Cs7hci.html">
+         <a class="dropdown-item" href="Cs7Nuclear.html">
           Cs
           <sup>
            6+
           </sup>
          </a>
-         <a class="dropdown-item" href="Ba8hci.html">
+         <a class="dropdown-item" href="Ba8Nuclear.html">
           Ba
           <sup>
            7+
           </sup>
          </a>
-         <a class="dropdown-item" href="Ce10hci.html">
+         <a class="dropdown-item" href="Ce10Nuclear.html">
           Ce
           <sup>
            9+
           </sup>
          </a>
-         <a class="dropdown-item" href="Pr11hci.html">
+         <a class="dropdown-item" href="Pr11Nuclear.html">
           Pr
           <sup>
            10+
           </sup>
          </a>
-         <a class="dropdown-item" href="Nd12hci.html">
+         <a class="dropdown-item" href="Nd12Nuclear.html">
           Nd
           <sup>
            11+
           </sup>
          </a>
-         <a class="dropdown-item" href="Nd13hci.html">
+         <a class="dropdown-item" href="Nd13Nuclear.html">
           Nd
           <sup>
            12+
           </sup>
          </a>
-         <a class="dropdown-item" href="Nd14hci.html">
+         <a class="dropdown-item" href="Nd14Nuclear.html">
           Nd
           <sup>
            13+
           </sup>
          </a>
-         <a class="dropdown-item" href="Sm14hci.html">
+         <a class="dropdown-item" href="Sm14Nuclear.html">
           Sm
           <sup>
            13+
           </sup>
          </a>
-         <a class="dropdown-item" href="Sm15hci.html">
+         <a class="dropdown-item" href="Sm15Nuclear.html">
           Sm
           <sup>
            14+
           </sup>
          </a>
-         <a class="dropdown-item" href="Sm16hci.html">
+         <a class="dropdown-item" href="Sm16Nuclear.html">
           Sm
           <sup>
            15+
           </sup>
          </a>
-         <a class="dropdown-item" href="Eu15hci.html">
+         <a class="dropdown-item" href="Eu15Nuclear.html">
           Eu
           <sup>
            14+
@@ -817,37 +816,47 @@ document. getElementById("htmltable").style.display="none";
     <nav class="navbar2">
      <div class="sidebar-collapse">
       <h1 style="color:white; font-size: 27px; padding-left: 10px">
-       Na
+       Sr
+       <sup>
+        +
+       </sup>
        <sup>
        </sup>
       </h1>
      </div>
-     <button class="btn2 noprint" onclick="location.href = 'Na1.html';" style="margin:5px 5px 5px 5px;width:175px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Sr2.html';" style="margin:5px 5px 5px 5px;width:175px; font-size: 15px;">
       Matrix elements
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'Na1TranAuto.html';" style="margin:5px 5px 5px 5px;width:160px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Sr2TranAuto.html';" style="margin:5px 5px 5px 5px;width:160px; font-size: 15px;">
       Transition rates
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'Na1Polarizability.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; word-wrap:break-word;">
+     <button class="btn2 noprint" onclick="location.href = 'Sr2Polarizability.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; word-wrap:break-word;">
       Polarizabilities
      </button>
-     <button class="btn2 noprint disabled" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px; cursor: not-allowed; ">
+     <button class="btn2 noprint disabled" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; cursor: not-allowed;">
+      Energies
+     </button>
+     <button class="btn2 noprint" onclick="location.href = 'Sr2Hyperfine.html';" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px;">
       Hyperfine constants
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'Na1Nuclear.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px;">
-      Nuclear data
+     <button class="btn2 noprint" onclick="location.href = 'Sr2Nuclear.html';" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px;">
+      Nuclear Data
      </button>
      <div class="main-logo noprint">
      </div>
      <div class="small-logo noprint">
-      <a href="https://physics.nist.gov/cgi-bin/ASD/energy1.pl?de=0&amp;spectrum=Mg+II&amp;submit=Retrieve+Data&amp;units=0&amp;format=0&amp;output=0&amp;page_size=15&amp;multiplet_ordered=0&amp;conf_out=on&amp;term_out=on&amp;level_out=on&amp;unc_out=1&amp;j_out=on&amp;lande_out=on&amp;perc_out=on&amp;biblio=on&amp;temp=" target="_blank">
+      <a href="https://physics.nist.gov/cgi-bin/ASD/energy1.pl?de=0&amp;spectrum=Sr+II&amp;submit=Retrieve+Data&amp;units=0&amp;format=0&amp;output=0&amp;page_size=15&amp;multiplet_ordered=0&amp;conf_out=on&amp;term_out=on&amp;level_out=on&amp;unc_out=1&amp;j_out=on&amp;lande_out=on&amp;perc_out=on&amp;biblio=on&amp;temp=" target="_blank">
        <img alt="[ASD data]" id="sc2logo" src="https://i.ibb.co/bP87x6w/asd6round.png" title="NIST database"/>
       </a>
      </div>
     </nav>
     <div class="jqmodal" id="UnitInfo" style=" bottom: 10% !important;">
      <p>
-      The values of magnetic-dipole hyperfine constants A are listed in MHz.
+      Energies are given in cm\(^{-1}\). See
+      <a href="https://www.nist.gov/pml/atomic-spectroscopy-compendium-basic-ideas-notation-data-and-formulas/atomic-spectroscopy-0#node02" target="_blank">
+       this link
+      </a>
+      for conversion factors.
      </p>
      <a href="about.html" target="_blank">
       Learn more about these data
@@ -862,16 +871,23 @@ document. getElementById("htmltable").style.display="none";
      <ul>
       <p>
        <li>
-        The values of magnetic-dipole hyperfine constants A are listed in MHz.
+        These are theoretical energies for the states not listed in
+        <a href="https://www.nist.gov/pml/atomic-spectra-database" target="_blank">
+         NIST ASD
+        </a>
+        .
+       </li>
+       <li>
+        Click on ASD button on the right to access the other energies for this element.
        </li>
        <li>
         Click on the Print button to print the table.
        </li>
+       <li>
+        Click on the Excel or CSV button to download the data. Note that the downloaded file will also contain separate columns of the values and their uncertainties for all properties.
+       </li>
       </p>
      </ul>
-     <a href="about.html" target="_blank">
-      Learn more about these data
-     </a>
      <p class="" style="margin: 4px;">
      </p>
      <a href="#" rel="jqmodal:close">
@@ -882,9 +898,6 @@ document. getElementById("htmltable").style.display="none";
      <p>
       Isotopes with half life more than 3 minutes are listed Fr, more than 10 minutes for all other cases.
      </p>
-     <a href="about.html" target="_blank">
-      Learn more about these data
-     </a>
      <p class="" style="margin: 4px;">
      </p>
      <a href="#" rel="jqmodal:close">
@@ -970,642 +983,465 @@ font-style:normal'>Cs Transitions</h1> -->
        <button class="btn2 print-btn noprint" id="printtable" onclick="printPage()" title="Print the data you see on the screen" type="button">
         Print data
        </button>
-       <button aria-label="Export" class="button_export_excel ml-3 noprint" id="exporttable" style=" display: none;" title="Download the data in excel with separate columns for values and uncertanties" type="button">
+       <button aria-label="Export" class="button_export_excel ml-3 noprint" id="exporttable" title="Download the data in excel with separate columns for values and uncertanties" type="button">
         Excel
+       </button>
+       <button aria-label="Export" class="button_export_csv ml-3 noprint" id="csvtable" title="Download the data into csv with separate columns for values and uncertanties" type="button">
+        Csv
        </button>
       </div>
       <p>
       </p>
       <style>
-       #table1, #table3, #table4 {
+       #table2, #table3, #table4 {
 display: none;
 }
       </style>
      </div>
     </article>
     <div class="container center">
-     <table cellpadding="0" cellspacing="0" class="table center" data-name="listtable" id="table2" style=" border: .5pt solid #4472C4; border-collapse:
-collapse;table-layout:fixed; width:350pt;" width="600">
-      <thead>
-       <tr style="text-align: center;">
-        <th align="center" class="xl159427" style="height:14.75pt;width:60pt;
-        font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+     <div style="
+    padding:  0 30%;
+">
+      <table cellpadding="0" cellspacing="0" class="table center" data-name="listtable" id="table1" style=" border: .5pt solid #4472C4; border-collapse:
+  collapse;" width="300">
+       <thead>
+        <tr style="text-align: center;">
+         <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
         none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left: .5pt;
-        background:#4472C4;mso-pattern:#4472C4 none; text-align: center; padding-left: 0pt;">
-         Isotope
-        </th>
-        <th align="center" class="xl159427" style="height:14.75pt;width:40pt;
-        font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left: .5pt;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
         background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
-         State
-        </th>
-        <th align="center" class="xl159427" style="height:14.75pt;width:120pt;
-        font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+          State
+         </th>
+         <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
         none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left: .5pt;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
         background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
-         Theory (MHz)
-        </th>
-        <th class="xl159427" style="height:14.75pt;width:158pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
-      background:#4472C4;mso-pattern:#4472C4 none; display: none;" width="200">
-         Key1
-         <a class="btn1 btn-warning" data-container="body" data-content="Absolute values of reduced electric-dipole matrix elements and their uncertainties are listed in atomic units. Uncertainties are listed in parenthesis." data-placement="right" data-toggle="tooltip" href="#MatInfo" rel="jqmodal:open" title="Absolute values of reduced electric-dipole matrix elements are listed in atomic units. Uncertainties are listed in parentheses." type="button">
-          info
-         </a>
-        </th>
-        <th align="center" class="xl159427" style="height:14.75pt;width:145pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left: .5pt;
-      background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
-         Experiment (MHz)
-        </th>
-        <th class="xl159427" style="height:14.75pt;width:158pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
-      background:#4472C4;mso-pattern:#4472C4 none; display: none;" width="200">
-         Key2
-         <a class="btn1 btn-warning" data-container="body" data-content="Absolute values of reduced electric-dipole matrix elements and their uncertainties are listed in atomic units. Uncertainties are listed in parenthesis." data-placement="right" data-toggle="tooltip" href="#MatInfo" rel="jqmodal:open" title="Absolute values of reduced electric-dipole matrix elements are listed in atomic units. Uncertainties are listed in parentheses." type="button">
-          info
-         </a>
-        </th>
-        <!--
-      <th class=xl159427 width=200  style='height:14.75pt;width:158pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:.5pt;
-      background:#4472C4;mso-pattern:#4472C4 none; text-align: center;'>Half-life <a type="button" href="#hlflifeInfo" rel="jqmodal:open" class="btn1 btn-warning"
-      data-container="body" data-toggle="tooltip" title="N.J. Stone, Table of recommended nuclear magnetic dipole moments: Part I, long-lived states, INDC(NDS)-079"
-      data-placement="right" >info </a><br><br></th>
-    -->
-        <th class="xl159427" style="height:14.75pt;width:158pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
-      background:#4472C4;mso-pattern:#4472C4 none; display: none;" width="200">
-         Reference1
-         <a class="btn1 btn-warning" data-container="body" data-content="Absolute values of reduced electric-dipole matrix elements and their uncertainties are listed in atomic units. Uncertainties are listed in parenthesis." data-placement="right" data-toggle="tooltip" href="#MatInfo" rel="jqmodal:open" title="Absolute values of reduced electric-dipole matrix elements are listed in atomic units. Uncertainties are listed in parentheses." type="button">
-          info
-         </a>
-        </th>
-        <th class="xl159427" style="height:14.75pt;width:158pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
-      background:#4472C4;mso-pattern:#4472C4 none; display: none;" width="200">
-         DOI1
-         <a class="btn1 btn-warning" data-container="body" data-content="Absolute values of reduced electric-dipole matrix elements and their uncertainties are listed in atomic units. Uncertainties are listed in parenthesis." data-placement="right" data-toggle="tooltip" href="#MatInfo" rel="jqmodal:open" title="Absolute values of reduced electric-dipole matrix elements are listed in atomic units. Uncertainties are listed in parentheses." type="button">
-          info
-         </a>
-        </th>
-        <th class="xl159427" style="height:14.75pt;width:158pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
-      background:#4472C4;mso-pattern:#4472C4 none; display: none;" width="200">
-         Reference2
-         <a class="btn1 btn-warning" data-container="body" data-content="Absolute values of reduced electric-dipole matrix elements and their uncertainties are listed in atomic units. Uncertainties are listed in parenthesis." data-placement="right" data-toggle="tooltip" href="#MatInfo" rel="jqmodal:open" title="Absolute values of reduced electric-dipole matrix elements are listed in atomic units. Uncertainties are listed in parentheses." type="button">
-          info
-         </a>
-        </th>
-        <th class="xl159427" style="height:14.75pt;width:158pt;
-      font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-      none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-      border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
-      background:#4472C4;mso-pattern:#4472C4 none; display: none;" width="200">
-         DOI2
-         <a class="btn1 btn-warning" data-container="body" data-content="Absolute values of reduced electric-dipole matrix elements and their uncertainties are listed in atomic units. Uncertainties are listed in parenthesis." data-placement="right" data-toggle="tooltip" href="#MatInfo" rel="jqmodal:open" title="Absolute values of reduced electric-dipole matrix elements are listed in atomic units. Uncertainties are listed in parentheses." type="button">
-          info
-         </a>
-        </th>
-       </tr>
-      </thead>
-      <tbody id="table_hyp">
-       <tr>
-        <td>
-         <sup>
-          23
-         </sup>
-         Na
-        </td>
-        <td>
-         3s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         885.8130644(5)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E29
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           A. Beckmann , K. D. Boklen, and D. Elke, Z. Phys. 270, 173 (1974)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1007/BF01680407
-          </td>
+          Energy (cm
+          <sup>
+           -1
+          </sup>
+          )
+          <a class="btn1 btn-warning noprint" data-container="body" data-html="true" data-placement="top" data-toggle="tooltip" href="#PgInfo" rel="jqmodal:open" title="Wavelengths are calculated using the NIST ADS database energies , unless marked with *.
+  [1] Kramida, A., Ralchenko, Yu., Reader, J. and NIST ASD Team (2019). NIST Atomic Spectra Database (version 5.7.1), [Online]. Available:https://physics.nist.gov/asd. National Institute of Standards and Technology, Gaithersburg, MD. DOI:https://doi.org/10.18434/T4W30F" type="button">
+           info
+          </a>
+         </th>
+        </tr>
+       </thead>
+       <tbody id="table_nuc">
+        <tr>
+         <td>
+          8p
+          <sub>
+           1/2
+          </sub>
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         4s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         204.3
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E1
-        </td>
-        <td>
-         202(3)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E43
-        </td>
-        <td class="nr" style="display: none">
-         M. S. Safronova, W. R. Johnson, and A. Derevianko Phys. Rev. A, 60 4476 (1999)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.60.4476
-        </td>
-        <td class="nr3" style="display: none">
-         K. H. Liao, R. Gupta, and W. Happer, Phys. Rev. A 8, 2792 (1973)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1103/PhysRevA.8.2811
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         5s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         77.68
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E1
-        </td>
-        <td>
-         77.6(2)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E95
-        </td>
-        <td class="nr" style="display: none">
-         M. S. Safronova, W. R. Johnson, and A. Derevianko Phys. Rev. A, 60 4476 (1999)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.60.4476
-        </td>
-        <td class="nr3" style="display: none">
-         P. Tsekeris, K. H. Liao, and R. Gupta, Phys. Rev. A 13, 2309 (1976)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1103/PhysRevA.13.2309
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         6s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         37.51
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E1
-        </td>
-        <td>
-         37.5(2)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E98
-        </td>
-        <td class="nr" style="display: none">
-         M. S. Safronova, W. R. Johnson, and A. Derevianko Phys. Rev. A, 60 4476 (1999)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.60.4476
-        </td>
-        <td class="nr3" style="display: none">
-         H. Lundberg, A-M. Martensson and S. Svanberg, J. Phys. B 10, 1971 (1977)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0022-3700/10/10/026
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         7s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         20.9(1)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E98
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           H. Lundberg, A-M. Martensson and S. Svanberg, J. Phys. B 10, 1971 (1977)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1088/0022-3700/10/10/026
-          </td>
+         <td>
+          75259(4)
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         8s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         12.85(10)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E98
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           H. Lundberg, A-M. Martensson and S. Svanberg, J. Phys. B 10, 1971 (1977)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1088/0022-3700/10/10/026
-          </td>
+        </tr>
+        <tr>
+         <td>
+          9p
+          <sub>
+           1/2
+          </sub>
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3p
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         94.3485(50)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E100
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           D. Das and V. Natarajan, J. Phys. B 41, 035001 (2008)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1088/0953-4075/41/3/035001
-          </td>
+         <td>
+          79079(3)
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         4p
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         30.7
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E1
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td class="nr" style="display: none">
-         M. S. Safronova, W. R. Johnson, and A. Derevianko Phys. Rev. A, 60 4476 (1999)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.60.4476
-        </td>
-        <td style="display: none">
-         <td style="display: none">
+        </tr>
+        <tr>
+         <td>
+          10p
+          <sub>
+           1/2
+          </sub>
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         5p
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         13.4687(42)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E99
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           M. Zhu, C. W. Oates, and J. L. Hall, Optics Letters 18, 1186-1188 (1993)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1364/OL.18.001186
-          </td>
+         <td>
+          81496(2)
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         6p
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         7.1
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E1
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td class="nr" style="display: none">
-         M. S. Safronova, W. R. Johnson, and A. Derevianko Phys. Rev. A, 60 4476 (1999)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.60.4476
-        </td>
-        <td style="display: none">
-         <td style="display: none">
+        </tr>
+        <tr>
+         <td>
+          11p
+          <sub>
+           1/2
+          </sub>
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3p
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         18.530(3)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E100
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           D. Das and V. Natarajan, J. Phys. B 41, 035001 (2008)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1088/0953-4075/41/3/035001
-          </td>
+         <td>
+          83123(1)
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         18.79(12)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E48
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           U. Volz, M. Majerus, H. Liebel, A. Schmitt, and H. Schmoranzer, Phys. Rev. Lett. 76, 2862 (1996)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevLett.76.2862
-          </td>
+        </tr>
+        <tr>
+         <td>
+          12p
+          <sub>
+           1/2
+          </sub>
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         4p
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         6.022(61)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E96, E97
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           'D. Schönberner and D. Zimmermann, Z.\xa0Phys. 216', 'Robert W. Schmieder, Allen Lurio, W. Happer, and A. Khadjavi, Phys. Rev. A\xa02, 1216 (1970)'
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevA.2.1216
-          </td>
+         <td>
+          84271(1)
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         5p
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         2.6360(23)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E99
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           M. Zhu, C. W. Oates, and J. L. Hall, Optics Letters 18, 1186-1188 (1993)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1364/OL.18.001186
-          </td>
+        </tr>
+        <tr>
+         <td>
+          13p
+          <sub>
+           1/2
+          </sub>
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         6p
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-         1.4
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E1
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td class="nr" style="display: none">
-         M. S. Safronova, W. R. Johnson, and A. Derevianko Phys. Rev. A, 60 4476 (1999)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.60.4476
-        </td>
-        <td style="display: none">
-         <td style="display: none">
+         <td>
+          85110(1)
          </td>
-        </td>
-       </tr>
-      </tbody>
-     </table>
+        </tr>
+        <tr>
+         <td>
+          8p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          75335(4)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          9p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          79126(3)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          10p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          81527(2)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          11p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          83145(1)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          12p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          84286(1)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          13p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          85122(1)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          10d
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          82946(2)
+         </td>
+        </tr>
+        <table cellpadding="0" cellspacing="0" class="table center" data-name="listtable" id="htmltable3" style=" display: none; border: .5pt solid #4472C4; border-collapse:
+  collapse;" width="300">
+         <thead>
+          <tr style="text-align: center;">
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            State
+           </th>
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            Energy (cm
+            <sup>
+             -1
+            </sup>
+            )
+           </th>
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            Energy (cm
+            <sup>
+             -1
+            </sup>
+            )
+           </th>
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            Uncertainty (cm
+            <sup>
+             -1
+            </sup>
+            )
+           </th>
+          </tr>
+         </thead>
+         <tbody id="table_nuc">
+          <tr>
+           <td>
+            8p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            75259(4)
+           </td>
+           <td>
+            75258.7800
+           </td>
+           <td>
+            4.50
+           </td>
+          </tr>
+          <tr>
+           <td>
+            9p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            79079(3)
+           </td>
+           <td>
+            79078.6800
+           </td>
+           <td>
+            3.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            10p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            81496(2)
+           </td>
+           <td>
+            81496.0800
+           </td>
+           <td>
+            2.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            11p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            83123(1)
+           </td>
+           <td>
+            83123.2800
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            12p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            84271(1)
+           </td>
+           <td>
+            84270.9800
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            13p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            85110(1)
+           </td>
+           <td>
+            85110.4800
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            8p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            75335(4)
+           </td>
+           <td>
+            75335.4800
+           </td>
+           <td>
+            4.50
+           </td>
+          </tr>
+          <tr>
+           <td>
+            9p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            79126(3)
+           </td>
+           <td>
+            79125.8800
+           </td>
+           <td>
+            3.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            10p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            81527(2)
+           </td>
+           <td>
+            81526.9800
+           </td>
+           <td>
+            2.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            11p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            83145(1)
+           </td>
+           <td>
+            83144.6800
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            12p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            84286(1)
+           </td>
+           <td>
+            84286.2800
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            13p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            85122(1)
+           </td>
+           <td>
+            85121.9800
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            10d
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            82946(2)
+           </td>
+           <td>
+            82945.5800
+           </td>
+           <td>
+            2.50
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </tbody>
+      </table>
+     </div>
     </div>
     <script>
      $(document).ready(function() {
@@ -1650,7 +1486,7 @@ collapse;table-layout:fixed; width:350pt;" width="600">
     })
     </script>
     <!-- START UD Footer -->
-    <footer id="udFooter" style="margin-top: 60px">
+    <footer id="udFooter">
      <div class="udFooter-container">
       <div class="udFooterHeader">
        <a href="http://www.udel.edu" target="_blank">

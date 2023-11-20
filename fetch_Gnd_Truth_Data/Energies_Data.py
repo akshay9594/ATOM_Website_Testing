@@ -21,6 +21,9 @@ def Get_Energies_data(atom,gnd_truth_url):
 
     gndTruth_Table = fetch_Energies_tables(atom,gnd_truth_url)
 
+    if(gndTruth_Table == []):
+        return gndTruth_Table
+
     Modified_gndTruth_Table = []
     for i in range(0,len(gndTruth_Table)):
         row = gndTruth_Table[i]

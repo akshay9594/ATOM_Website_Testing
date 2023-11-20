@@ -32,17 +32,36 @@ def Get_TransitionRates_GndTruth_Data(atom,gnd_truth_url):
     #Start by fetching the ground truth tables a.k.a tables from version 2
     TR_table_gnd_truth = fetch_TransitionRates_tables(atom,gnd_truth_url)
 
+    Experimental_Data_Exists = False
+
+    if(TR_table_gnd_truth == []):
+        return TR_table_gnd_truth,Experimental_Data_Exists
+
+    GndTruth_Experimental_data = []
+    if ("Experiment" in TR_table_gnd_truth[1][0]):
+        Experimental_Data_Exists = True
+        GndTruth_btns_list = TR_table_gnd_truth[0]
+        GndTruth_Experimental_data = TR_table_gnd_truth[1]
+        GndTruth_radiativelifetimes_data = TR_table_gnd_truth[2]
+        GndTruth_TR_data = TR_table_gnd_truth[3]
+    else:
+        GndTruth_btns_list = TR_table_gnd_truth[0]
+        GndTruth_radiativelifetimes_data = TR_table_gnd_truth[1]
+        GndTruth_TR_data = TR_table_gnd_truth[2]
+
+   
     #Buttons list (There are some unwanted rows such as the column headers)
     #Unwanted rows are ignored
-    GndTruth_btns_list = TR_table_gnd_truth[0]
     GndTruth_btns_list = GndTruth_btns_list[2:]
 
     #Unwanted rows ignored for Radiative liftimes tables
-    GndTruth_radiativelifetimes_data = TR_table_gnd_truth[1]
     GndTruth_radiativelifetimes_data = GndTruth_radiativelifetimes_data[1:]
 
-    #Unwanted rows ignored for the Transition rates tables
-    GndTruth_TR_data = TR_table_gnd_truth[2]
+    if(len(GndTruth_Experimental_data)>0):
+        GndTruth_Experimental_data = GndTruth_Experimental_data[1:]
+
+        #Preprocessing exp data
+        GndTruth_Experimental_data = utils.process_TR_ExpData(GndTruth_Experimental_data)
     
     #Preprocessing required for the transitions rates tables
     GndTruth_TR_data = utils.preprocess(GndTruth_TR_data,data_type)
@@ -71,16 +90,22 @@ def Get_TransitionRates_GndTruth_Data(atom,gnd_truth_url):
 
     # First populate the dictionary with the radiative lifetimes data
     actual_data = {}
+
     for state in states_list:
         temp_list = []
+
         for rl_row in GndTruth_radiativelifetimes_data:
             if (state == rl_row[0]):
                 temp_list.append(rl_row)
 
+        if(GndTruth_Experimental_data):
+            if(state in GndTruth_Experimental_data.keys()):
+                temp_list.append(GndTruth_Experimental_data[state])
+
         for TR_row in GndTruth_TR_data:
             if(state == TR_row[0]):
                 temp_list.append(TR_row)
-        
+
         actual_data[state] = temp_list
 
-    return actual_data
+    return actual_data,Experimental_Data_Exists

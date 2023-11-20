@@ -2,7 +2,6 @@
 from selenium.webdriver.common.by import By
 from Reproduce_tables import Reproduce_Column_titles,Reproduce_Data
 from fetch_Gnd_Truth_Data.Matrix_Elements_Data import Get_MatrixElements_data
-from atom_charges import atom_charge
 import os,ast,sys
 
 
@@ -135,6 +134,9 @@ def test_MatrixElementData(element,driver,gnd_truth_url,path_to_reports_dir):
 
     #Fetch the ground truth data
     gnd_truth_data_tables = Get_MatrixElements_data(element,gnd_truth_url)
+    if(gnd_truth_data_tables == []):
+        print("Ground Truth Data not available!!Property not tested...")
+        return
 
      # Define the URL (Transition rates url for Li1)
     test_url = "https://www1.udel.edu/atom/dev/version3/matrix?element="+element

@@ -32,6 +32,14 @@ def perform_testing(gnd_truth_table:list, test_table:list, path_to_reports_dir:s
 
 def test_NuclearData(element,driver,gnd_truth_url,path_to_reports_dir):
 
+
+    #Get the ground truth
+    gnd_truth_data_tables = Get_Nuclear_data(element,gnd_truth_url)
+
+    if(gnd_truth_data_tables == []):
+        print("Gnd Truth Data not available!Property not tested...")
+        return
+
     # Define the URL (Transition rates url for Li1)
     url = "https://www1.udel.edu/atom/dev/version3/nuclear?element=" + element
 
@@ -39,10 +47,6 @@ def test_NuclearData(element,driver,gnd_truth_url,path_to_reports_dir):
     driver.get(url)
 
     driver.implicitly_wait(10)
-
-    #Get the ground truth
-    gnd_truth_data_tables = Get_Nuclear_data(element,gnd_truth_url)
-
 
     directory = os.getcwd() + '/Data/Nuclear'
 
@@ -63,7 +67,7 @@ def test_NuclearData(element,driver,gnd_truth_url,path_to_reports_dir):
         test_table_column_titles = Reproduce_Column_titles(driver)
         test_data_tables = Reproduce_Data(driver)
         if(test_table_column_titles==[] or test_data_tables==[]):
-            print("Test Data not available!Property not tested!!")
+            print("Test Data not available!Property not tested...")
             return
 
         test_data_tables.insert(0,test_table_column_titles)

@@ -53,8 +53,8 @@ using the following command:
    
     python3 dynamic_scrape_and_test.py
 
-Data for all properties are tested for an element. Currently the list of elements in
-hard-coded.
+Note: Data for all properties are tested for an element. Currently the user inputs the
+      element for which testing is to be performed.
 
 
 Note: The ground truth and test data have already been downloaded and placed in

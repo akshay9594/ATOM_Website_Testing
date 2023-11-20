@@ -27,16 +27,17 @@ def perform_testing(gndTruth_Column_titles, gndTruth_table, test_Column_titles, 
     mismatched_data = []
     empty_rows = 0
 
-    for test_row in test_table:
-        state = test_row[1]
-        if(state == ''):
-            empty_rows = empty_rows + 1
-            test_table.remove(test_row)
+
+    # for test_row in test_table:
+    #     state = test_row[1]
+    #     if(state == ''):
+    #         empty_rows = empty_rows + 1
+    #         test_table.remove(test_row)
 
     for gndTruth_row, test_row in zip(gndTruth_table,test_table):
         state = test_row[1]
         diff = set(gndTruth_row).difference(set(test_row))
-
+        
         if(len(diff) > 0):
             if(len(diff) == 1):
                 diff = diff.pop()
@@ -66,6 +67,10 @@ def test_HyperfineData(element,driver,gnd_truth_url,path_to_reports_dir):
 
     #Fetch the ground truth data: Version 2 data
     gndTruth_Table_Columns_titles, gndTruth_Table = Get_Hyperfine_data(element,gnd_truth_url)
+
+    if(gndTruth_Table_Columns_titles == [] and gndTruth_Table == []):
+        print("Gnd Truth Data not available!Property not tested...")
+        return
 
     # load the web page
     driver.get(test_url)

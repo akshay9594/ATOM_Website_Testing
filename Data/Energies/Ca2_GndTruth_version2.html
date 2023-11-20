@@ -83,15 +83,24 @@
      </script>
      <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js">
      </script>
-     <!-- pop up loaders -->
-     <!-- jqeury modal -->
-     <script src="https://cdn.statically.io/gh/Marrs-jin/WebDesign/main/modal_func.js">
+     <!-- MathJax -->
+     <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript">
      </script>
-     <link href="https://cdn.statically.io/gh/Marrs-jin/WebDesign/main/modal_style.css" rel="stylesheet"/>
-     <!-- <script src="modal_func.js"></script>
+     <!-- UD header and footer refs -->
+     <link href="css/ud-header.css" rel="stylesheet" type="text/css">
+      <script src="js/ud-search-visibility.js" type="text/javascript">
+      </script>
+      <link href="css/ud-footer.css" rel="stylesheet" type="text/css">
+       <link href="css/main.css" rel="stylesheet"/>
+       <!-- pop up loaders -->
+       <!-- jqeury modal -->
+       <script src="https://cdn.statically.io/gh/Marrs-jin/WebDesign/main/modal_func.js">
+       </script>
+       <link href="https://cdn.statically.io/gh/Marrs-jin/WebDesign/main/modal_style.css" rel="stylesheet"/>
+       <!-- <script src="modal_func.js"></script>
 <link rel="stylesheet" href="modal_style.css"> -->
-     <script>
-      $(document).ready(function () {
+       <script>
+        $(document).ready(function () {
     var table = $('#htmltable3').DataTable({
 
       paging: false,
@@ -103,8 +112,7 @@
       buttons: [
           {
             extend: 'excelHtml5',
-            messageTop: 'Wavelengths are calculated using the NIST ASD database energies , unless marked with *',
-            filename: 'Cs1NuclearData',
+            filename: 'Ca2Energies',
               customizeData: function(data) {
                 for(var i = 0; i < data.body.length; i++) {
                   // j goes through columns. skip first 2 (initial, final)
@@ -117,11 +125,17 @@
                           }
           }
         }
-      }
+      }, customize: function(xlsx) {
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                $('row c[r^="A"]', sheet).attr( 's', '50' ); //<-- left aligned text
+                
+              }
 
           },
+          
           {
-              extend: 'csv'
+              extend: 'csv', 
+              filename: 'Ca2Energies',
           },
           {
             extend: 'print'
@@ -132,16 +146,27 @@
 $('.button_export_excel').click(() => {
     $('#htmltable3').DataTable().buttons(0,0).trigger()
 });
+$('.button_export_csv').click(() => {
+    $('#htmltable3').DataTable().buttons(0,1).trigger()
+});
 
 
 $('#min, #max').keyup( function() {
     table.draw();
 } );
 });
-     </script>
-     <style type="text/css">
-      @media print
+       </script>
+       <style type="text/css">
+        @media print
     {
+    body {text-align: center; }
+    article {width: 100%!important; }
+    .container{    
+      margin-left: auto!important;
+      margin-right: auto!important;}
+    h1 {color: black!important; }
+    .table th  {color: black!important;}
+    
     .noprint {display:none;}
     .exporttable {display:none;}
     .button {display: none;}
@@ -150,23 +175,23 @@ $('#min, #max').keyup( function() {
     {
     /* ... */
     }
-     </style>
-     <!-- Master States -->
-     <style id="Cs Transitions_22755_Styles">
-      <!--table
+       </style>
+       <!-- Master States -->
+       <style id="Cs Transitions_22755_Styles">
+        <!--table
         {mso-displayed-decimal-separator:"\.";
         mso-displayed-thousand-separator:"\,";}
-     </style>
-     <!--Transitions -->
-     <style id="Cs Transitions_20382_Styles">
-      <!--table
+       </style>
+       <!--Transitions -->
+       <style id="Cs Transitions_20382_Styles">
+        <!--table
 	{mso-displayed-decimal-separator:"\.";
 	mso-displayed-thousand-separator:"\,";
 }
-     </style>
-     <!-- rgba(0, 191, 255, 1); -->
-     <style type="text/css">
-      #search {
+       </style>
+       <!-- rgba(0, 191, 255, 1); -->
+       <style type="text/css">
+        #search {
   background-color: rgba(0, 200, 255, 1);
   border: none;
   color: black;
@@ -204,9 +229,9 @@ box-shadow: 0 3px #666;
 transform: translateY(2px);
 color: black;
 }
-     </style>
-     <style>
-      .btn {
+       </style>
+       <style>
+        .btn {
   background-color:rgb(222, 228, 222);
   border: 1pt solid grey;
   color: black;
@@ -258,9 +283,9 @@ header {
   border-radius: 5px;
       box-shadow: 0 2px #999;
 }
-     </style>
-     <style>
-      .button {
+       </style>
+       <style>
+        .button {
   background-color: rgba(0, 200, 255, 1);
   border: none;
   color: black;
@@ -300,9 +325,9 @@ box-shadow: 0 3px #666;
 transform: translateY(2px);
 color: black;
 }
-     </style>
-     <style>
-      * {
+       </style>
+       <style>
+        * {
   box-sizing: border-box;
 }
 /*
@@ -338,9 +363,9 @@ body {
     }
 
 }
-     </style>
-     <style>
-      .container {
+       </style>
+       <style>
+        .container {
     border-radius: 5px;
     background-color: #ffffff;
     padding: 0px;
@@ -383,7 +408,7 @@ body {
   appearance: none;
   }
 
-.button_export_excel, .print-btn  {
+.button_export_excel,.button_export_csv, .print-btn  {
   background-color: rgba(0, 191, 255, 1);
   border: none;
   color: white;
@@ -394,7 +419,7 @@ body {
   border-radius: 5px;
 }
 
-.print-btn:hover, .button_export_excel:hover {
+.print-btn:hover,.button_export_csv:hover, .button_export_excel:hover {
   background-color: DodgerBlue;
 }
 
@@ -421,26 +446,26 @@ th{
   font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw!important;
   background-color: #5b89c3!important;
 }
-     </style>
-     <style>
-      .btn-primary{
+       </style>
+       <style>
+        .btn-primary{
           height:20px;
           font-size: 10px;
           margin-top: 2px;
           padding-top: 2px;
       }
-     </style>
-     <style>
-      .label {
+       </style>
+       <style>
+        .label {
    text-align: center;
 }
-     </style>
-     <style>
-      .navbar-dark {
+       </style>
+       <style>
+        .navbar-dark {
             background-color: #113c71;
         }
     .navbar2 {
-        padding: 30px 0; 
+        padding: 3px 0; 
         width: 100%;
         max-width: 100%;
         vertical-align: middle;
@@ -449,9 +474,7 @@ th{
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 7%;
-        min-height: 7%;
-        max-height: 10%;
+        
     }
 .main-logo {
   flex: 1 0 0;
@@ -466,9 +489,7 @@ th{
 .sidebar-collapse,
 .small-logo {
   width: 100px;
-  padding-top: 50px;
-
-  padding-bottom: 50px;
+  
 
   height: auto;
 }
@@ -529,9 +550,9 @@ th{
 
 
 }
-     </style>
-     <style>
-      /* sets the color of the background of the popup */
+       </style>
+       <style>
+        /* sets the color of the background of the popup */
 .blocker{
   background-color:rgba(0,0,0,0.5);
 }
@@ -549,9 +570,9 @@ th{
 
 
 }
-     </style>
-     <script>
-      function goBack() {
+       </style>
+       <script>
+        function goBack() {
   window.location.href = "index.html";
 }
 function printPage() {
@@ -559,16 +580,18 @@ function printPage() {
 window.print();
 
 }
-     </script>
-     <script>
-      function load() {
+       </script>
+       <script>
+        function load() {
 document. getElementById("htmltable").style.display="none";
 
 }
-     </script>
-     <title>
-      K Energies
-     </title>
+       </script>
+       <title>
+        Ca+ energies
+       </title>
+      </link>
+     </link>
     </link>
    </link>
   </head>
@@ -614,6 +637,11 @@ document. getElementById("htmltable").style.display="none";
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
        <li class="nav-item active">
+        <a href="https://www.udel.edu/atom">
+         <img class="logo-side" src="photos/logo3.png"/>
+        </a>
+       </li>
+       <li class="nav-item active">
         <a class="nav-link active" href="index.html">
          Home
          <span class="sr-only">
@@ -626,19 +654,19 @@ document. getElementById("htmltable").style.display="none";
          Elements
         </a>
         <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-primary">
-         <a class="dropdown-item" href="Li1.html">
+         <a class="dropdown-item" href="Li1Energies.html">
           Li
          </a>
-         <a class="dropdown-item" href="Na1Energies.html">
+         <a class="dropdown-item" href="Na1.html">
           Na
          </a>
-         <a class="dropdown-item" href="K1Energies.html">
+         <a class="dropdown-item" href="K1.html">
           K
          </a>
          <a class="dropdown-item" href="Rb1Energies.html">
           Rb
          </a>
-         <a class="dropdown-item" href="Cs1Energies.html">
+         <a class="dropdown-item" href="Cs1.html">
           Cs
          </a>
          <a class="dropdown-item" href="Fr1Energies.html">
@@ -777,10 +805,10 @@ document. getElementById("htmltable").style.display="none";
       <a class="btn2 btn-outline-success my-2 my-sm-0" href="#UnitInfo" rel="jqmodal:open" style="margin:5px 5px 5px 5px;" type="button">
        Units
       </a>
-      <button class="btn2 btn-outline-success my-2 my-sm-0" onclick="location.href = 'citation.html';" style="margin:5px 5px 5px 5px">
+      <button class="btn2 btn-grey btn-outline-success my-2 my-sm-0" onclick="location.href = 'citation.html';" style="margin:5px 5px 5px 5px">
        Citation info
       </button>
-      <button class="btn2 btn-outline-success my-2 my-sm-0" onclick="location.href = 'feedback.html';" style="margin:5px 5px 5px 5px">
+      <button class="btn2 btn-grey btn-outline-success my-2 my-sm-0" onclick="location.href = 'feedback.html';" style="margin:5px 5px 5px 5px">
        Feedback
       </button>
      </div>
@@ -788,52 +816,48 @@ document. getElementById("htmltable").style.display="none";
     <nav class="navbar2">
      <div class="sidebar-collapse">
       <h1 style="color:white; font-size: 27px; padding-left: 10px">
-       K
+       Ca
+       <sup>
+        +
+       </sup>
        <sup>
        </sup>
       </h1>
      </div>
-     <button class="btn2 noprint" onclick="location.href = 'K1.html';" style="margin:5px 5px 5px 5px;width:175px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Ca2.html';" style="margin:5px 5px 5px 5px;width:175px; font-size: 15px;">
       Matrix elements
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'K1TranAuto.html';" style="margin:5px 5px 5px 5px;width:160px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Ca2TranAuto.html';" style="margin:5px 5px 5px 5px;width:160px; font-size: 15px;">
       Transition rates
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'K1Polarizability.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; word-wrap:break-word;">
-      Polarizability
+     <button class="btn2 noprint" onclick="location.href = 'Ca2Polarizability.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; word-wrap:break-word;">
+      Polarizabilities
      </button>
      <button class="btn2 noprint disabled" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; cursor: not-allowed;">
       Energies
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'K1Nuclear.html';" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px;">
-      Nuclear Data
-     </button>
-     <button class="btn2 noprint" onclick="location.href = 'K1Hyperfine.html';" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Ca2Hyperfine.html';" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px;">
       Hyperfine constants
+     </button>
+     <button class="btn2 noprint" onclick="location.href = 'Ca2Nuclear.html';" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px;">
+      Nuclear Data
      </button>
      <div class="main-logo noprint">
      </div>
      <div class="small-logo noprint">
-      <a href="https://physics.nist.gov/cgi-bin/ASD/energy1.pl?de=0&amp;spectrum=Cs+I&amp;submit=Retrieve+Data&amp;units=0&amp;format=0&amp;output=0&amp;page_size=15&amp;multiplet_ordered=0&amp;conf_out=on&amp;term_out=on&amp;level_out=on&amp;unc_out=1&amp;j_out=on&amp;lande_out=on&amp;perc_out=on&amp;biblio=on&amp;temp=" target="_blank">
+      <a href="https://physics.nist.gov/cgi-bin/ASD/energy1.pl?de=0&amp;spectrum=Ca+II&amp;submit=Retrieve+Data&amp;units=0&amp;format=0&amp;output=0&amp;page_size=15&amp;multiplet_ordered=0&amp;conf_out=on&amp;term_out=on&amp;level_out=on&amp;unc_out=1&amp;j_out=on&amp;lande_out=on&amp;perc_out=on&amp;biblio=on&amp;temp=" target="_blank">
        <img alt="[ASD data]" id="sc2logo" src="https://i.ibb.co/bP87x6w/asd6round.png" title="NIST database"/>
       </a>
      </div>
     </nav>
     <div class="jqmodal" id="UnitInfo" style=" bottom: 10% !important;">
-     <ul>
-      <p>
-       <li>
-        Click on the button for the state (for example, 6s1/2) to get all available E1 matrix elements for this state.
-       </li>
-       <li>
-        Click on the Print button to print the table.
-       </li>
-       <li>
-        Click on the Excel button to download the data. Note that the downloaded file will also contain
-      separate columns of the values and their uncertainties for all properties.
-       </li>
-      </p>
-     </ul>
+     <p>
+      Energies are given in cm\(^{-1}\). See
+      <a href="https://www.nist.gov/pml/atomic-spectroscopy-compendium-basic-ideas-notation-data-and-formulas/atomic-spectroscopy-0#node02" target="_blank">
+       this link
+      </a>
+      for conversion factors.
+     </p>
      <a href="about.html" target="_blank">
       Learn more about these data
      </a>
@@ -847,29 +871,23 @@ document. getElementById("htmltable").style.display="none";
      <ul>
       <p>
        <li>
-        Click on a "Nuclear data" button to display properties of isotopes with a half-life exceeding 10 minutes
-        (3 minutes for Fr).
+        These are theoretical energies for the states not listed in
+        <a href="https://www.nist.gov/pml/atomic-spectra-database" target="_blank">
+         NIST ASD
+        </a>
+        .
        </li>
        <li>
-        Click on a "Hyperfine constant A" button to display the values of magnetic-dipole hyperfine constants A
-        (in MHz) complied from published papers.
+        Click on ASD button on the right to access the other energies for this element.
        </li>
        <li>
-        If the atom/ion has metastable states a "Metastable state properties" button will show with a list of
-        metastable states. Click on the button to display the data for dominant electric quadrupole (E2) and
-        magnetic dipole (M1) transitions, lifetimes, and quadrupole moments.
+        Click on the Print button to print the table.
        </li>
        <li>
-        Click on a "Ref" button to display the sources of the data.
-       </li>
-       <li>
-        Click on the "Print" button to print the tables you see on the screen.
+        Click on the Excel or CSV button to download the data. Note that the downloaded file will also contain separate columns of the values and their uncertainties for all properties.
        </li>
       </p>
      </ul>
-     <a href="about.html" target="_blank">
-      Learn more about these data
-     </a>
      <p class="" style="margin: 4px;">
      </p>
      <a href="#" rel="jqmodal:close">
@@ -880,9 +898,6 @@ document. getElementById("htmltable").style.display="none";
      <p>
       Isotopes with half life more than 3 minutes are listed Fr, more than 10 minutes for all other cases.
      </p>
-     <a href="about.html" target="_blank">
-      Learn more about these data
-     </a>
      <p class="" style="margin: 4px;">
      </p>
      <a href="#" rel="jqmodal:close">
@@ -968,8 +983,11 @@ font-style:normal'>Cs Transitions</h1> -->
        <button class="btn2 print-btn noprint" id="printtable" onclick="printPage()" title="Print the data you see on the screen" type="button">
         Print data
        </button>
-       <button aria-label="Export" class="button_export_excel ml-3 noprint" id="exporttable" style=" display: none;" title="Download the data in excel with separate columns for values and uncertanties" type="button">
+       <button aria-label="Export" class="button_export_excel ml-3 noprint" id="exporttable" title="Download the data in excel with separate columns for values and uncertanties" type="button">
         Excel
+       </button>
+       <button aria-label="Export" class="button_export_csv ml-3 noprint" id="csvtable" title="Download the data into csv with separate columns for values and uncertanties" type="button">
+        Csv
        </button>
       </div>
       <p>
@@ -999,17 +1017,512 @@ display: none;
         none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
         border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
         background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
-          Energy
-         </th>
-         <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
-        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
-        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
-        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
-          Uncertainty
+          Energy (cm
+          <sup>
+           -1
+          </sup>
+          )
+          <a class="btn1 btn-warning noprint" data-container="body" data-html="true" data-placement="top" data-toggle="tooltip" href="#PgInfo" rel="jqmodal:open" title="Wavelengths are calculated using the NIST ADS database energies , unless marked with *.
+  [1] Kramida, A., Ralchenko, Yu., Reader, J. and NIST ASD Team (2019). NIST Atomic Spectra Database (version 5.7.1), [Online]. Available:https://physics.nist.gov/asd. National Institute of Standards and Technology, Gaithersburg, MD. DOI:https://doi.org/10.18434/T4W30F" type="button">
+           info
+          </a>
          </th>
         </tr>
        </thead>
        <tbody id="table_nuc">
+        <tr>
+         <td>
+          11s
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          90561(2)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          12s
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          91530(1)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          7p
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          81498(5)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          8p
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          85529(4)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          9p
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          88061(3)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          10p
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          89757(2)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          11p
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          90947(2)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          12p
+          <sub>
+           1/2
+          </sub>
+         </td>
+         <td>
+          91816(1)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          7p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          81518(5)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          8p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          85541(4)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          9p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          88069(3)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          10p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          89762(2)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          11p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          90951(2)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          12p
+          <sub>
+           3/2
+          </sub>
+         </td>
+         <td>
+          91818(1)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          11f
+          <sub>
+           5/2
+          </sub>
+         </td>
+         <td>
+          92105.6(5)
+         </td>
+        </tr>
+        <tr>
+         <td>
+          11f
+          <sub>
+           7/2
+          </sub>
+         </td>
+         <td>
+          92105.6(5)
+         </td>
+        </tr>
+        <table cellpadding="0" cellspacing="0" class="table center" data-name="listtable" id="htmltable3" style=" display: none; border: .5pt solid #4472C4; border-collapse:
+  collapse;" width="300">
+         <thead>
+          <tr style="text-align: center;">
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            State
+           </th>
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            Energy (cm
+            <sup>
+             -1
+            </sup>
+            )
+           </th>
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            Energy (cm
+            <sup>
+             -1
+            </sup>
+            )
+           </th>
+           <th style="font-size:13.0pt;color:black;font-weight:700;text-decoration:none;text-underline-style:
+        none;text-line-through:none;font-family:Calibri, sans-serif;border-top:.5pt solid #2F75B5;
+        border-right:.5pt solid #2F75B5;border-bottom:.5pt solid #4472C4;border-left:none;
+        background:#4472C4;mso-pattern:#4472C4 none; text-align: center;">
+            Uncertainty (cm
+            <sup>
+             -1
+            </sup>
+            )
+           </th>
+          </tr>
+         </thead>
+         <tbody id="table_nuc">
+          <tr>
+           <td>
+            11s
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            90561(2)
+           </td>
+           <td>
+            90560.8100
+           </td>
+           <td>
+            2.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            12s
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            91530(1)
+           </td>
+           <td>
+            91530.0500
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            7p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            81498(5)
+           </td>
+           <td>
+            81497.6700
+           </td>
+           <td>
+            5.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            8p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            85529(4)
+           </td>
+           <td>
+            85529.1400
+           </td>
+           <td>
+            4.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            9p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            88061(3)
+           </td>
+           <td>
+            88061.2200
+           </td>
+           <td>
+            3.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            10p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            89757(2)
+           </td>
+           <td>
+            89756.8400
+           </td>
+           <td>
+            2.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            11p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            90947(2)
+           </td>
+           <td>
+            90947.2400
+           </td>
+           <td>
+            2.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            12p
+            <sub>
+             1/2
+            </sub>
+           </td>
+           <td>
+            91816(1)
+           </td>
+           <td>
+            91815.5400
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            7p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            81518(5)
+           </td>
+           <td>
+            81517.7600
+           </td>
+           <td>
+            5.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            8p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            85541(4)
+           </td>
+           <td>
+            85541.3600
+           </td>
+           <td>
+            4.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            9p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            88069(3)
+           </td>
+           <td>
+            88069.2100
+           </td>
+           <td>
+            3.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            10p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            89762(2)
+           </td>
+           <td>
+            89762.3400
+           </td>
+           <td>
+            2.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            11p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            90951(2)
+           </td>
+           <td>
+            90951.1900
+           </td>
+           <td>
+            2.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            12p
+            <sub>
+             3/2
+            </sub>
+           </td>
+           <td>
+            91818(1)
+           </td>
+           <td>
+            91818.4700
+           </td>
+           <td>
+            1.00
+           </td>
+          </tr>
+          <tr>
+           <td>
+            11f
+            <sub>
+             5/2
+            </sub>
+           </td>
+           <td>
+            92105.6(5)
+           </td>
+           <td>
+            92105.6100
+           </td>
+           <td>
+            0.50
+           </td>
+          </tr>
+          <tr>
+           <td>
+            11f
+            <sub>
+             7/2
+            </sub>
+           </td>
+           <td>
+            92105.6(5)
+           </td>
+           <td>
+            92105.6100
+           </td>
+           <td>
+            0.50
+           </td>
+          </tr>
+         </tbody>
+        </table>
        </tbody>
       </table>
      </div>
@@ -1056,6 +1569,74 @@ display: none;
       $('[data-toggle="tooltip"]').tooltip()
     })
     </script>
+    <!-- START UD Footer -->
+    <footer id="udFooter">
+     <div class="udFooter-container">
+      <div class="udFooterHeader">
+       <a href="http://www.udel.edu" target="_blank">
+        <img alt="UD" id="udFooterLogo" src="img/ud-monogram.png"/>
+       </a>
+       <div class="name-site">
+        Portal for High-Precision Atomic Data and Computation
+       </div>
+       <ul class="udFooterSocial-icons">
+        <li>
+         <a href="https://twitter.com/UDelaware" target="_blank" title="Twitter">
+          <img alt="Twitter" src="img/twitter.png" title="Twitter"/>
+         </a>
+        </li>
+        <li>
+         <a href="https://www.facebook.com/udelaware" target="_blank" title="Facebook">
+          <img alt="Facebook" src="img/facebook.png" title="Facebook"/>
+         </a>
+        </li>
+        <li>
+         <a href="https://www.instagram.com/udelaware" target="_blank" title="Instagram">
+          <img alt="Instagram" src="img/instagram.png" title="Instagram"/>
+         </a>
+        </li>
+        <li>
+         <a href="https://www.youtube.com/univdelaware" target="_blank" title="Youtube">
+          <img alt="YouTube" src="img/youtube.png" title="Youtube"/>
+         </a>
+        </li>
+        <li>
+         <a href="https://www.pinterest.com/udelaware/" target="_blank" title="Pinterest">
+          <img alt="Pinterest" src="img/pininterest.png" title="Pinterest"/>
+         </a>
+        </li>
+        <li>
+         <a href="https://www.linkedin.com/edu/school?id=18070" target="_blank" title="Linkedin">
+          <img alt="Linkedin" src="img/linkedin.png" title="Linkedin"/>
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div class="udFooterLinks">
+      <div class="container-fluid">
+       <div class="link-item">
+        ©2021 University of Delaware
+       </div>
+       <div class="link-item">
+        <a href="http://www.udel.edu/home/comments/">
+         Comments
+        </a>
+       </div>
+       <div class="link-item">
+        <a href="http://www.udel.edu/home/legal-notices/">
+         Legal Notices
+        </a>
+       </div>
+       <div class="link-item">
+        <a href="http://www.udel.edu/home/legal-notices/accessibility/">
+         Accessibility Notice
+        </a>
+       </div>
+      </div>
+     </div>
+    </footer>
+    <!-- END UD Footer -->
    </body>
   </body>
  </head>

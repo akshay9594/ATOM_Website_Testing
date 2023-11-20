@@ -113,7 +113,7 @@
           {
             extend: 'excelHtml5',
             messageTop: 'Wavelengths are calculated using the NIST ASD database energies , unless marked with *',
-            filename: 'K1HyperfineData',
+            filename: 'Ca2HyperfineData',
               customizeData: function(data) {
                 for(var i = 0; i < data.body.length; i++) {
                   // j goes through columns. skip first 2 (initial, final)
@@ -589,7 +589,7 @@ document. getElementById("htmltable").style.display="none";
 }
        </script>
        <title>
-        K
+        Ca+
        </title>
       </link>
      </link>
@@ -817,24 +817,30 @@ document. getElementById("htmltable").style.display="none";
     <nav class="navbar2">
      <div class="sidebar-collapse">
       <h1 style="color:white; font-size: 27px; padding-left: 10px">
-       K
+       Ca
+       <sup>
+        +
+       </sup>
        <sup>
        </sup>
       </h1>
      </div>
-     <button class="btn2 noprint" onclick="location.href = 'K1.html';" style="margin:5px 5px 5px 5px;width:175px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Ca2.html';" style="margin:5px 5px 5px 5px;width:175px; font-size: 15px;">
       Matrix elements
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'K1TranAuto.html';" style="margin:5px 5px 5px 5px;width:160px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Ca2TranAuto.html';" style="margin:5px 5px 5px 5px;width:160px; font-size: 15px;">
       Transition rates
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'K1Polarizability.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; word-wrap:break-word;">
+     <button class="btn2 noprint" onclick="location.href = 'Ca2Polarizability.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px; word-wrap:break-word;">
       Polarizabilities
+     </button>
+     <button class="btn2 noprint" onclick="location.href = 'Ca2Energies.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px;">
+      Energies
      </button>
      <button class="btn2 noprint disabled" style="margin:5px 5px 5px 5px;width:190px; font-size: 15px; cursor: not-allowed; ">
       Hyperfine constants
      </button>
-     <button class="btn2 noprint" onclick="location.href = 'K1Nuclear.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px;">
+     <button class="btn2 noprint" onclick="location.href = 'Ca2Nuclear.html';" style="margin:5px 5px 5px 5px;width:140px; font-size: 15px;">
       Nuclear data
      </button>
      <div class="main-logo noprint">
@@ -1091,9 +1097,12 @@ collapse;table-layout:fixed; width:350pt;" width="600">
        <tr>
         <td>
          <sup>
-          39
+          43
          </sup>
-         K
+         Ca
+         <sup>
+          +
+         </sup>
         </td>
         <td>
          4s
@@ -1106,21 +1115,21 @@ collapse;table-layout:fixed; width:350pt;" width="600">
         <td style="display: none">
         </td>
         <td>
-         230.8598601(7)
+         -806.40207160(8)
          <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E29
+         E71
         </td>
         <td style="display: none">
          <td style="display: none">
           <td class="nr3" style="display: none">
-           A. Beckmann , K. D. Boklen, and D. Elke, Z. Phys. 270, 173 (1974)
+           F. Arbes, M. Benzing, Th. Gudjons, F. Kurth, and G. Werth, Z. Phys. D 31, 27 (1994)
           </td>
           <td class="nr4" style="display: none">
-           https://doi.org/10.1007/BF01680407
+           https://doi.org/10.1007/BF01426573
           </td>
          </td>
         </td>
@@ -1135,34 +1144,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         54.817
+         -236.3
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         55.50(60)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
         </td>
         <td style="display: none">
-         E4
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
-        <td class="nr3" style="display: none">
-         R. Gupta, W. Happer, L. K. Lam, and S. Svanberg, Phys. Rev. A 8, 2792 (1973)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1103/PhysRevA.8.2792
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1175,34 +1177,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         21.609
+         -102.33
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         21.81(18)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
         </td>
         <td style="display: none">
-         E4
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
-        <td class="nr3" style="display: none">
-         R. Gupta, W. Happer, L. K. Lam, and S. Svanberg, Phys. Rev. A 8, 2792 (1973)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1103/PhysRevA.8.2792
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1215,147 +1210,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         10.69
+         -53.53
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
-        </td>
-        <td>
-         10.78(5)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E30
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         G. Belin, L. Holmgren, I. Lindgren, and S. Svanberg, Phys. Scr. 12, 287 (1975)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/12/5/007
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         8s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         6.057
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
-        </td>
-        <td>
-         5.99(8)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E30
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         G. Belin, L. Holmgren, I. Lindgren, and S. Svanberg, Phys. Scr. 12, 287 (1975)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/12/5/007
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         9s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         3.759
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
+         E70
         </td>
         <td>
         </td>
         <td style="display: none">
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
          </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         10s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-         2.491
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
-        </td>
-        <td>
-         2.41(5)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E30
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         G. Belin, L. Holmgren, I. Lindgren, and S. Svanberg, Phys. Scr. 12, 287 (1975)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/12/5/007
         </td>
        </tr>
        <tr>
@@ -1368,34 +1243,34 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         27.662
+         -144.96
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         27.775(42)
+         -145.4(1)
          <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E32
+         E72
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td class="nr3" style="display: none">
-         S. Falke, E. Tiemann, C. Lisdat, H. Schnatz, and G. Grosche, Phys. Rev. A 74, 032503 (2006)
+         W. Nörtershäuser, K. Blaum, K. Icker, P. Müller, A. Schmitt, K. Wendt, and B. Wiche, Eur. Phys. J. D 2, 33 (1998)
         </td>
         <td class="nr4" style="display: none">
-         https://doi.org/10.1103/PhysRevA.74.032503
+         https://doi.org/10.1007/s100530050107
         </td>
        </tr>
        <tr>
@@ -1408,34 +1283,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         8.949
+         -50.71
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         8.99(15)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
         </td>
         <td style="display: none">
-         E33
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
-        <td class="nr3" style="display: none">
-         W. N. Fox and G. W. Series, Proc. Phys. Soc. Lond. 77, 1141 (1961)
-        </td>
-        <td class="nr4" style="display: none">
-         10.1088/0370-1328/77/6/305
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1448,34 +1316,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         4.014
+         -23.81
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         4.05(7)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
         </td>
         <td style="display: none">
-         E30
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
-        <td class="nr3" style="display: none">
-         G. Belin, L. Holmgren, I. Lindgren, and S. Svanberg, Phys. Scr. 12, 287 (1975)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/12/5/007
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1488,34 +1349,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         2.14
+         -13.08
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         2.18(5)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
         </td>
         <td style="display: none">
-         E30
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
-        <td class="nr3" style="display: none">
-         G. Belin, L. Holmgren, I. Lindgren, and S. Svanberg, Phys. Scr. 12, 287 (1975)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/12/5/007
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1528,34 +1382,34 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         5.989
+         -30.34
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         6.093(25)
+         -31.0(2)
          <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E32
+         E72
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td class="nr3" style="display: none">
-         S. Falke, E. Tiemann, C. Lisdat, H. Schnatz, and G. Grosche, Phys. Rev. A 74, 032503 (2006)
+         W. Nörtershäuser, K. Blaum, K. Icker, P. Müller, A. Schmitt, K. Wendt, and B. Wiche, Eur. Phys. J. D 2, 33 (1998)
         </td>
         <td class="nr4" style="display: none">
-         https://doi.org/10.1103/PhysRevA.74.032503
+         https://doi.org/10.1007/s100530050107
         </td>
        </tr>
        <tr>
@@ -1568,34 +1422,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         1.932
+         -10.58
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         1.969(13)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
         </td>
         <td style="display: none">
-         E3
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
-        <td class="nr3" style="display: none">
-         E. Arimondo, M. Inguscio, and P. Violino, Rev. Mod. Phys. 49, 31 (1977)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1103/RevModPhys.49.31
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1608,34 +1455,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         0.866
+         -4.97
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         0.866(8)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
         </td>
         <td style="display: none">
-         E36
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
-        <td class="nr3" style="display: none">
-         S. Svanberg, Phys. Scr. 4, 275 (1971)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/4/6/007
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1648,141 +1488,23 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         0.462
+         -2.73
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
-        </td>
-        <td>
-         0.49(4)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E30
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         G. Belin, L. Holmgren, I. Lindgren, and S. Svanberg, Phys. Scr. 12, 287 (1975)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/12/5/007
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3d
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-         1.111
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
-        </td>
-        <td>
-         0.96(4)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E41
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         A. Sieradzan, R. Stoleru, W. Yei, and M. D. Havey, Phys. Rev. A 55, 3475 (1997)
-        </td>
-        <td style="display: none">
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3d
-         <sub>
-          5/2
-         </sub>
-        </td>
-        <td>
-         -0.639
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
-        </td>
-        <td>
-         0.62(4)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E41
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         A. Sieradzan, R. Stoleru, W. Yei, and M. D. Havey, Phys. Rev. A 55, 3475 (1997)
-        </td>
-        <td style="display: none">
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         4d
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-         0.678
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
+         E70
         </td>
         <td>
         </td>
         <td style="display: none">
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
@@ -1793,29 +1515,69 @@ collapse;table-layout:fixed; width:350pt;" width="600">
         <td>
         </td>
         <td>
-         4d
+         3d
          <sub>
-          5/2
+          3/2
          </sub>
         </td>
         <td>
-         -0.307
+         -47.63
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
+        </td>
+        <td>
+         -47.3(2)
+         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E72
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
+        </td>
+        <td class="nr3" style="display: none">
+         W. Nörtershäuser, K. Blaum, K. Icker, P. Müller, A. Schmitt, K. Wendt, and B. Wiche, Eur. Phys. J. D 2, 33 (1998)
+        </td>
+        <td class="nr4" style="display: none">
+         https://doi.org/10.1007/s100530050107
+        </td>
+       </tr>
+       <tr>
+        <td>
+        </td>
+        <td>
+         4d
+         <sub>
+          3/2
+         </sub>
+        </td>
+        <td>
+         -9.35
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E70
         </td>
         <td>
         </td>
         <td style="display: none">
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
@@ -1832,34 +1594,166 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         0.409
+         -3.88
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
-         0.44(10)
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
+        </td>
+        <td style="display: none">
+         <td style="display: none">
+         </td>
+        </td>
+       </tr>
+       <tr>
+        <td>
+        </td>
+        <td>
+         6d
+         <sub>
+          3/2
+         </sub>
+        </td>
+        <td>
+         -1.99
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
+        </td>
+        <td style="display: none">
+         <td style="display: none">
+         </td>
+        </td>
+       </tr>
+       <tr>
+        <td>
+        </td>
+        <td>
+         7d
+         <sub>
+          3/2
+         </sub>
+        </td>
+        <td>
+         -1.17
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
+        </td>
+        <td style="display: none">
+         <td style="display: none">
+         </td>
+        </td>
+       </tr>
+       <tr>
+        <td>
+        </td>
+        <td>
+         3d
+         <sub>
+          5/2
+         </sub>
+        </td>
+        <td>
+         -4.24
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E70
+        </td>
+        <td>
+         -3.8931(2)
          <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E30
+         E72
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td class="nr3" style="display: none">
-         G. Belin, L. Holmgren, I. Lindgren, and S. Svanberg, Phys. Scr. 12, 287 (1975)
+         W. Nörtershäuser, K. Blaum, K. Icker, P. Müller, A. Schmitt, K. Wendt, and B. Wiche, Eur. Phys. J. D 2, 33 (1998)
         </td>
         <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0031-8949/12/5/007
+         https://doi.org/10.1007/s100530050107
+        </td>
+       </tr>
+       <tr>
+        <td>
+        </td>
+        <td>
+         4d
+         <sub>
+          5/2
+         </sub>
+        </td>
+        <td>
+         -3.06
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
+        </td>
+        <td style="display: none">
+         <td style="display: none">
+         </td>
         </td>
        </tr>
        <tr>
@@ -1872,23 +1766,23 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         -0.167
+         -1.49
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
         </td>
         <td style="display: none">
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
@@ -1901,107 +1795,27 @@ collapse;table-layout:fixed; width:350pt;" width="600">
         <td>
          6d
          <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-         0.253
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
-        </td>
-        <td>
-         0.25(1)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E42
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         M. Głódź and M. Kraińska-Miszczak, J. Phys. B 18, 1515 (1985)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0022-3700/18/8/010
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         6d
-         <sub>
           5/2
          </sub>
         </td>
         <td>
-         -0.0975
+         -0.831
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
-        </td>
-        <td>
-         -0.12(4)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E42
-        </td>
-        <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
-        </td>
-        <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
-        </td>
-        <td class="nr3" style="display: none">
-         M. Głódź and M. Kraińska-Miszczak, J. Phys. B 18, 1515 (1985)
-        </td>
-        <td class="nr4" style="display: none">
-         https://doi.org/10.1088/0022-3700/18/8/010
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         7d
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-         0.1644
-         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E40
+         E70
         </td>
         <td>
         </td>
         <td style="display: none">
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
@@ -2018,23 +1832,23 @@ collapse;table-layout:fixed; width:350pt;" width="600">
          </sub>
         </td>
         <td>
-         -0.0611
+         -0.502
          <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E40
+         E70
         </td>
         <td>
         </td>
         <td style="display: none">
         </td>
         <td class="nr" style="display: none">
-         U. I. Safronova and M. S. Safronova, Phys. Rev. A 78, 052504 (2008)
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
         </td>
         <td class="nr2" style="display: none">
-         https://doi.org/10.1103/PhysRevA.78.052504
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
@@ -2043,205 +1857,34 @@ collapse;table-layout:fixed; width:350pt;" width="600">
        </tr>
        <tr>
         <td>
-         <sup>
-          40
-         </sup>
-         K
         </td>
         <td>
-         4s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         -285.7308(24)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E3
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           E. Arimondo, M. Inguscio, and P. Violino, Rev. Mod. Phys. 49, 31 (1977)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/RevModPhys.49.31
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         4p
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         -34.523(25)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E32
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           S. Falke, E. Tiemann, C. Lisdat, H. Schnatz, and G. Grosche, Phys. Rev. A 74, 032503 (2006)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevA.74.032503
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         4p
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         -7.585(10)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E32
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           S. Falke, E. Tiemann, C. Lisdat, H. Schnatz, and G. Grosche, Phys. Rev. A 74, 032503 (2006)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevA.74.032503
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3d
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         1.07(2)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E37
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           A. Sieradzan, R. Stoleru, W. Yei, and M. D. Havey, Phys. Rev. A 55, 3475 (1997)
-          </td>
-          <td style="display: none">
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3d
+         4f
          <sub>
           5/2
          </sub>
         </td>
         <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         0.71(4)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+         -0.163
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E37
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
-          <td class="nr3" style="display: none">
-           A. Sieradzan, R. Stoleru, W. Yei, and M. D. Havey, Phys. Rev. A 55, 3475 (1997)
-          </td>
-          <td style="display: none">
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-         <sup>
-          41
-         </sup>
-         K
-        </td>
-        <td>
-         4s
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         127.0069352(6)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E3
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           E. Arimondo, M. Inguscio, and P. Violino, Rev. Mod. Phys. 49, 31 (1977)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/RevModPhys.49.31
-          </td>
          </td>
         </td>
        </tr>
@@ -2249,129 +1892,32 @@ collapse;table-layout:fixed; width:350pt;" width="600">
         <td>
         </td>
         <td>
-         4p
-         <sub>
-          1/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         15.245(42)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E32
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           S. Falke, E. Tiemann, C. Lisdat, H. Schnatz, and G. Grosche, Phys. Rev. A 74, 032503 (2006)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevA.74.032503
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         4p
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         3.363(25)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E32
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           S. Falke, E. Tiemann, C. Lisdat, H. Schnatz, and G. Grosche, Phys. Rev. A 74, 032503 (2006)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevA.74.032503
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3d
-         <sub>
-          3/2
-         </sub>
-        </td>
-        <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         0.55(3)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
-          Ref
-         </button>
-        </td>
-        <td style="display: none">
-         E37
-        </td>
-        <td style="display: none">
-         <td style="display: none">
-          <td class="nr3" style="display: none">
-           A. Sieradzan, R. Stoleru, W. Yei, and M. D. Havey, Phys. Rev. A 55, 3475 (1997)
-          </td>
-          <td style="display: none">
-          </td>
-         </td>
-        </td>
-       </tr>
-       <tr>
-        <td>
-        </td>
-        <td>
-         3d
+         5f
          <sub>
           5/2
          </sub>
         </td>
         <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         0.40(2)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+         -0.089
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E37
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
-          <td class="nr3" style="display: none">
-           A. Sieradzan, R. Stoleru, W. Yei, and M. D. Havey, Phys. Rev. A 55, 3475 (1997)
-          </td>
-          <td style="display: none">
-          </td>
          </td>
         </td>
        </tr>
@@ -2379,32 +1925,32 @@ collapse;table-layout:fixed; width:350pt;" width="600">
         <td>
         </td>
         <td>
-         5s
+         6f
          <sub>
-          1/2
+          5/2
          </sub>
         </td>
         <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         30.75(75)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+         -0.053
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E4
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
-          <td class="nr3" style="display: none">
-           R. Gupta, W. Happer, L. K. Lam, and S. Svanberg, Phys. Rev. A 8, 2792 (1973)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevA.8.2792
-          </td>
          </td>
         </td>
        </tr>
@@ -2412,32 +1958,32 @@ collapse;table-layout:fixed; width:350pt;" width="600">
         <td>
         </td>
         <td>
-         6s
+         7f
          <sub>
-          1/2
+          5/2
          </sub>
         </td>
         <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         12.03(40)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+         -0.034
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E4
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
-          <td class="nr3" style="display: none">
-           R. Gupta, W. Happer, L. K. Lam, and S. Svanberg, Phys. Rev. A 8, 2792 (1973)
-          </td>
-          <td class="nr4" style="display: none">
-           https://doi.org/10.1103/PhysRevA.8.2792
-          </td>
          </td>
         </td>
        </tr>
@@ -2445,31 +1991,98 @@ collapse;table-layout:fixed; width:350pt;" width="600">
         <td>
         </td>
         <td>
-         6d
+         4f
          <sub>
-          3/2
+          7/2
          </sub>
         </td>
         <td>
-        </td>
-        <td style="display: none">
-        </td>
-        <td>
-         0.14(2)
-         <button class="btn btn-primary Ref2" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+         -0.044
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
           Ref
          </button>
         </td>
         <td style="display: none">
-         E37
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
         </td>
         <td style="display: none">
          <td style="display: none">
-          <td class="nr3" style="display: none">
-           A. Sieradzan, R. Stoleru, W. Yei, and M. D. Havey, Phys. Rev. A 55, 3475 (1997)
-          </td>
-          <td style="display: none">
-          </td>
+         </td>
+        </td>
+       </tr>
+       <tr>
+        <td>
+        </td>
+        <td>
+         5f
+         <sub>
+          7/2
+         </sub>
+        </td>
+        <td>
+         -0.011
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
+        </td>
+        <td style="display: none">
+         <td style="display: none">
+         </td>
+        </td>
+       </tr>
+       <tr>
+        <td>
+        </td>
+        <td>
+         6f
+         <sub>
+          7/2
+         </sub>
+        </td>
+        <td>
+         -0.002
+         <button class="btn btn-primary Ref1" data-target="#exampleModalCenter" data-toggle="modal" type="button">
+          Ref
+         </button>
+        </td>
+        <td style="display: none">
+         E70
+        </td>
+        <td>
+        </td>
+        <td style="display: none">
+        </td>
+        <td class="nr" style="display: none">
+         M. S. Safronova and U. I. Safronova, Phys. Rev. A 83, 012503 (2011)
+        </td>
+        <td class="nr2" style="display: none">
+         https://doi.org/10.1103/PhysRevA.83.012503
+        </td>
+        <td style="display: none">
+         <td style="display: none">
          </td>
         </td>
        </tr>

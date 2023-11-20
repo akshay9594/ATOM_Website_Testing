@@ -20,6 +20,8 @@ def fetch_Nuclear_tables(atom,url):
 def Get_Nuclear_data(atom,gnd_truth_url):
 
     gndTruth_Table = fetch_Nuclear_tables(atom,gnd_truth_url)
+    if(gndTruth_Table == []):
+        return gndTruth_Table
 
     for i in range(0,len(gndTruth_Table)):
         row = gndTruth_Table[i]

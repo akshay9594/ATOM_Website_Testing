@@ -10,7 +10,7 @@ from html_table_parser.parser import HTMLTableParser
 
 def static_page_scrapper(atom,url, gnd_truth_version,data_type): 
     
-    html_file = atom + 'GndTruth' + '_' + gnd_truth_version +'.html'  
+    html_file = atom + '_GndTruth' + '_' + gnd_truth_version +'.html'  
     directory = os.getcwd() + '/Data/'+data_type
 
     file_path = os.path.join(directory, html_file)

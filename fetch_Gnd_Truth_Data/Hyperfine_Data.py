@@ -20,6 +20,8 @@ def fetch_Hyperfine_tables(atom,url):
 def Get_Hyperfine_data(atom,gnd_truth_url):
 
     gndTruth_Table = fetch_Hyperfine_tables(atom,gnd_truth_url)
+    if(gndTruth_Table == []):
+        return [],[]
 
     gndTruth_Table_Columns = gndTruth_Table[0]
 

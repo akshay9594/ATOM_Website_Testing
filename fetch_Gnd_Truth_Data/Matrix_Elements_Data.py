@@ -20,6 +20,8 @@ def Get_MatrixElements_data(atom,gnd_truth_url):
 
     #Start by fetching the ground truth tables a.k.a tables from version 2
     ME_table_gnd_truth = fetch_MatrixElements_tables(atom,gnd_truth_url)
+    if(ME_table_gnd_truth == []):
+        return ME_table_gnd_truth
     ME_table_gnd_truth = utils.preprocess(ME_table_gnd_truth,data_type)
 
     #Get the ground truth buttons
