@@ -3,7 +3,6 @@
 
 from selenium.webdriver.common.by import By
 from Reproduce_tables import Reproduce_Column_titles,Reproduce_Data
-from atom_charges import atom_charge
 from fetch_Gnd_Truth_Data.Energies_Data import Get_Energies_data
 import os,ast
 

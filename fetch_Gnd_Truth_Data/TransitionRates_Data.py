@@ -1,5 +1,4 @@
 import sys,os
-from atom_charges import atom_charge
 
 sys.path.append(os.getcwd()+'/fetch_Gnd_TRuth_Data')
 

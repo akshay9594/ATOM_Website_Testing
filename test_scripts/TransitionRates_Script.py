@@ -2,7 +2,6 @@
 from selenium.webdriver.common.by import By
 from Reproduce_tables import Reproduce_Column_titles,Reproduce_Data
 from fetch_Gnd_Truth_Data.TransitionRates_Data import Get_TransitionRates_GndTruth_Data
-from atom_charges import atom_charge
 import os , ast
 
 #Performs the actual testing

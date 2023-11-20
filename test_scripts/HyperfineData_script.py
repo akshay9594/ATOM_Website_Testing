@@ -2,7 +2,6 @@
 
 from selenium.webdriver.common.by import By
 from Reproduce_tables import Reproduce_Column_titles,Reproduce_Data
-from atom_charges import atom_charge
 from fetch_Gnd_Truth_Data.Hyperfine_Data import Get_Hyperfine_data
 import os,ast
 
@@ -27,26 +26,38 @@ def perform_testing(gndTruth_Column_titles, gndTruth_table, test_Column_titles, 
     mismatched_data = []
     empty_rows = 0
 
+    row_indices_to_remove = []
+    test_table_without_empty_rows = []
+    for i in range(0,len(test_table)):
+        test_row = test_table[i]
+        if(test_row[0] == '' and all(i == test_row[0] for i in test_row)):
+            empty_rows = empty_rows + 1
+        else:
+            test_table_without_empty_rows.append(test_row)
 
-    # for test_row in test_table:
-    #     state = test_row[1]
-    #     if(state == ''):
-    #         empty_rows = empty_rows + 1
-    #         test_table.remove(test_row)
 
-    for gndTruth_row, test_row in zip(gndTruth_table,test_table):
+    for gndTruth_row, test_row in zip(gndTruth_table,test_table_without_empty_rows):
         state = test_row[1]
         diff = set(gndTruth_row).difference(set(test_row))
         
         if(len(diff) > 0):
-            if(len(diff) == 1):
-                diff = diff.pop()
-                diff = diff.replace(" ", "")
-                if(diff != test_row[0]):
-                    mismatched_data.append([state,diff])
-            else:
-                mismatched_data.append([state,diff])
-
+            diff_data_to_report = []
+            diff = list(diff)
+            # if(len(diff) == 1):
+            #     diff = diff.pop()
+            #     diff = diff.replace(" ", "")
+            #     if(diff != test_row[0]):
+            #         mismatched_data.append([state,diff])
+            # else:
+            
+            for j in range(0,len(diff)):
+                value_v2 = diff[j]
+                id = gndTruth_row.index(value_v2)
+                Column_title = (gndTruth_Column_titles[id]).replace("\n","")
+                Column_title = Column_title.replace("info","")
+                value_v3 = test_row[id]
+                diff_data_to_report.append([value_v3,value_v2,Column_title])
+            mismatched_data.append([state,diff_data_to_report])
 
     report_path = os.path.join(path_to_reports_dir, 'Hyperfine_report.txt')
 
@@ -55,9 +66,22 @@ def perform_testing(gndTruth_Column_titles, gndTruth_table, test_Column_titles, 
         if(len(mismatched_data)==0):
             file.write("No mismatches between the ground truth and test data")
         else:
-            file.write("state\t\tMissing/Mismatched strings (Not displayed as in version 2)")
+            file.write("\nState\t\t\tColumn\t\t\t\t\t\tValue in V3(Test)\t\t\tValue in V2(Ground Truth)")
+            file.write("\n--------------------------------------------------------------------------------------------------------------")
             for mismatched_row in mismatched_data:
-                file.write("\n"+str(mismatched_row[0])+"\t\t\t"+str(mismatched_row[1]))
+                state = mismatched_row[0]
+                diff_data_to_report = mismatched_row[1]
+            
+                for row in diff_data_to_report:
+                    value_v3 = row[0].replace("\n","")
+                    value_v2 = row[1].replace("\n","")
+                    Column_title = row[2]
+                    if(('Theory' in Column_title) or ('Isotope' in Column_title)):
+                        file.write("\n"+state+"\t\t"+Column_title+"\t\t\t\t\t\t\t"+value_v3+"\t\t\t\t\t\t\t\t"+value_v2)
+                    else:
+                        file.write("\n"+state+"\t\t"+Column_title+"  \t\t\t    "+value_v3+"\t\t\t\t    "+value_v2)
+
+            file.write("\n--------------------------------------------------------------------------------------------------------------")
 
 
 def test_HyperfineData(element,driver,gnd_truth_url,path_to_reports_dir):

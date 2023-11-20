@@ -26,6 +26,7 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,path_to_reports_dir:str):
         for state in gnd_truth_states_list:
             gnd_truth_frame = gnd_truth_data[state]
             test = test_data[state]
+            Column_titles = test[0]
             test.remove(test[0])
             test_data_frame = test.pop()
         
@@ -36,7 +37,16 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,path_to_reports_dir:str):
                             diff = set(gndTruth_row).difference(set(test_row))
                         
                             if(len(diff) > 0):
-                                mismatched_data.append([state,To_state,diff])
+                                diff = list(diff)
+                                diff_data_to_report = []
+                                for j in range(0,len(diff)):
+                                    value_v2 = diff[j]
+                                    id = gndTruth_row.index(value_v2)
+                                    Column_title = (Column_titles[id-1]).replace("\n","")
+                                    Column_title = Column_title.replace("info","")
+                                    value_v3 = test_row[id]
+                                    diff_data_to_report.append([value_v3,value_v2,Column_title])
+                                mismatched_data.append([state,To_state,diff_data_to_report])
 
 
     report_path = os.path.join(path_to_reports_dir, 'MatrixElements_report.txt')
@@ -44,13 +54,19 @@ def Perform_Testing(gnd_truth_data:dict,test_data:dict,path_to_reports_dir:str):
     if(len(mismatched_data) > 0): 
 
         with open(report_path, 'w') as file: 
-            file.write("From\tTo\t\tMismatched strings (Not displayed as in version 2)")
+            file.write("\nFrom\tTo\t\t\tColumn\t\t\t\t\t\tValue in V3(Test)\t\t\tValue in V2(Ground Truth)")
             for mismatched_row in mismatched_data:
                 state_from = mismatched_row[0]
                 state_to = mismatched_row[1]
-                diff = mismatched_row[2]
+                diff_data_to_report = mismatched_row[2]
 
-                file.write("\n"+state_from+"\t"+state_to+"\t\t"+str(diff))
+                for row in diff_data_to_report:
+                    value_v3 = row[0].replace("\n","")
+                    value_v2 = row[1].replace("\n","")
+                    Column_title = row[2]
+                    file.write("\n"+state_from+"\t"+state_to+"\t\t"+Column_title+"  \t\t\t    "+value_v3+"\t\t\t\t    "+value_v2)
+
+                file.write("\n--------------------------------------------------------------------------------------------------------------")
 
     else:
         file.write("No mismatched Data!!")

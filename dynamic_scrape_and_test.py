@@ -8,7 +8,7 @@ from test_scripts.HyperfineData_Script import test_HyperfineData
 from test_scripts.Nuclear_Script import test_NuclearData
 from test_scripts.Energies_Script import test_EnergiesData
 from test_scripts.Polarizability_Script import test_PolarizabilityData
-from atom_charges import atom_charge
+from elements import element_data
 
 import sys,os
 
@@ -44,10 +44,6 @@ gnd_truth_url = 'https://www1.udel.edu/atom/'
 
 #element = input("Enter the element to whose data should be tested: ")
 
-element = "Li"
-
-charge_vals = atom_charge(element)
-
 # element = element + str(charge_vals)
 
 # print("\n2. Transition Rates")
@@ -58,40 +54,48 @@ charge_vals = atom_charge(element)
 
 # driver = ''
 
-# test_TransitionRatesData(element,driver,gnd_truth_url,path_to_reports_dir)
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+# test_HyperfineData(element,driver,gnd_truth_url,path_to_reports_dir)
 
 # sys.exit()
 
+list_of_elements = element_data("","element list")
 
-if(type(charge_vals)==list):
-    for val in charge_vals:
-        element_with_charge = element + str(val)
-        path_to_reports_dir = os.getcwd() + '/reports/' + element_with_charge
+for element in list_of_elements:
+
+    charge_vals = element_data(element)
+
+
+    if(type(charge_vals)==list):
+        for val in charge_vals:
+            element_with_charge = element + str(val)
+            path_to_reports_dir = os.getcwd() + '/reports/' + element_with_charge
+
+            if(os.path.exists(path_to_reports_dir) == False):
+                os.mkdir(path_to_reports_dir)
+
+            test_properties(element_with_charge,gnd_truth_url,path_to_reports_dir)
+
+    else:
+        element = element + str(charge_vals)
+
+        path_to_reports_dir = os.getcwd() + '/reports/' + element
 
         if(os.path.exists(path_to_reports_dir) == False):
             os.mkdir(path_to_reports_dir)
 
-        test_properties(element_with_charge,gnd_truth_url,path_to_reports_dir)
+        test_properties(element,gnd_truth_url,path_to_reports_dir)
 
-else:
-    element = element + str(charge_vals)
-
-    path_to_reports_dir = os.getcwd() + '/reports/' + element
-
-    if(os.path.exists(path_to_reports_dir) == False):
-        os.mkdir(path_to_reports_dir)
-
-    test_properties(element,gnd_truth_url,path_to_reports_dir)
-
-print("\nCheck the reports/"+element,"directory for generated reports")
+    print("\nCheck the reports/"+element,"directory for generated reports")
 
 
-sys.exit()
+# sys.exit()
 
-element = element + str(charge_vals)
+# element = element + str(charge_vals)
 
-path_to_data = os.getcwd() + '/Data/Polarizability/' + element
+# path_to_data = os.getcwd() + '/Data/Polarizability/' + element
 
-path_to_reports_dir = os.getcwd() + '/reports/' + element
+# path_to_reports_dir = os.getcwd() + '/reports/' + element
 
-test_PolarizabilityData(element,path_to_data,path_to_reports_dir)
+# test_PolarizabilityData(element,path_to_data,path_to_reports_dir)

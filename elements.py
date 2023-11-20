@@ -1,6 +1,6 @@
 
 
-def atom_charge(atom):
+def element_data(atom,req_data):
     switcher = {
         "Li": 1,"Cs": 7,
         "Na": 1,"Ba": 8,
@@ -21,5 +21,10 @@ def atom_charge(atom):
     # value of passed argument if it is present
     # in dictionary otherwise second argument will
     # be assigned as default value of passed argument
-    return switcher.get(atom, "nothing")
+
+    if(req_data == 'element list'):
+        return list(switcher.keys())
+    else:
+        return switcher.get(atom, "nothing")
+
     
