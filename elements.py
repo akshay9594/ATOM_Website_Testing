@@ -3,7 +3,7 @@
 def element_data(atom,req_data):
     switcher = {
         "Li": 1,"Cs": 7,
-        "Na": 1,"Ba": 8,
+        "Na": 1,
         "K": 1,"Ce": 10,
         "Rb": 1,"Pr": 11,
         "Cs": [1,7],"Nd":[12,13,14],
@@ -12,7 +12,7 @@ def element_data(atom,req_data):
         "Mg": 2,"Cf": [16,18],
         "Ca": 2,
         "Sr": [1,2],
-        "Ba": 2,
+        "Ba": [2,8],
         "Ra": 2,
 
     }

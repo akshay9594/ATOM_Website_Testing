@@ -76,7 +76,7 @@ def process_TR_ExpData(data:list):
         
     return data_dict
 
-def get_gnd_truth_tables(atom,url,data_type,ext):
+def  get_gnd_truth_tables(atom,url,data_type,ext):
     # defining the html contents of a URL.
     html_file = webscrapper.static_page_scrapper(atom,url,ext,data_type)
 
@@ -99,6 +99,8 @@ def get_gnd_truth_tables(atom,url,data_type,ext):
             if(p.tables[0][0][0] == '' and p.tables[0][0][1] == ''):
                 return []
             return p.tables[0]
+        elif(data_type == 'Atomic'):
+            return p.tables[1],p.tables[2]
         elif (data_type == 'TransitionRates'):
             if(len(p.tables) < 3):
                 return []

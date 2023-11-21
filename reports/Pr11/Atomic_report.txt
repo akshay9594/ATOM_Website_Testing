@@ -1,0 +1,30 @@
+Mismatches in the Energies Table:
+
+State			Column						Value in V3(Test)			Value in V2(Ground Truth)
+--------------------------------------------------------------------------------------------------------------
+5p1/2		Wavelength (nm)															 
+4f5/2		Lifetime (s)							8.5E+04								8.5 (  10^4 )
+4f7/2		Lifetime (s)							2.35E+00								2.35
+5p3/2		Lifetime (s)							1.83E-03								1.83 (   10^-3 )
+=================================================================================================================
+
+Mismatches in the Transition Energies Table:
+Transition			Column						Value in V3(Test)			Value in V2(Ground Truth)
+--------------------------------------------------------------------------------------------------------------
+4f5/2-5p1/2		Matrix element (a.u)				0.955							0.955 a.u.
+4f5/2-5p1/2		Transition						4f5/2−4f5/2							4f5/2-5p1/2
+4f5/2-5p1/2		Transition rate (s−1)				0.00001183							1.183(  10^-5 )
+4f7/2-4f5/2		Transition						4f7/2−4f7/2							4f7/2-4f5/2
+4f7/2-4f5/2		Transition rate (s−1)				0.426							4.260(  10^-1 )
+4f7/2-4f5/2		Matrix element (a.u)				1.851							1.851 ( uB )
+5p3/2-5p1/2		Transition rate (s−1)				535.2							5.352(  10^2 )
+5p3/2-5p1/2		Transition						5p3/2−5p3/2							5p3/2-5p1/2
+5p3/2-5p1/2		Matrix element (a.u)				1.151							1.151 ( uB )
+5p3/2-5p1/2		Transition						5p3/2−5p3/2							5p3/2-5p1/2
+5p3/2-5p1/2		Matrix element (a.u)				1.851							1.851 a.u.
+5p3/2-4f5/2		Transition						5p3/2−5p3/2							5p3/2-4f5/2
+5p3/2-4f5/2		Transition rate (s−1)				0.4058							4.058(  10^-1 )
+5p3/2-4f5/2		Matrix element (a.u)				0.509							0.509 a.u.
+5p3/2-4f7/2		Transition						5p3/2−5p3/2							5p3/2-4f7/2
+5p3/2-4f7/2		Matrix element (a.u)				1.258							1.258 a.u.
+--------------------------------------------------------------------------------------------------------------
