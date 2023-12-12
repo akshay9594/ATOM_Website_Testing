@@ -99,8 +99,18 @@ def  get_gnd_truth_tables(atom,url,data_type,ext):
             if(p.tables[0][0][0] == '' and p.tables[0][0][1] == ''):
                 return []
             return p.tables[0]
+        
+
         elif(data_type == 'Atomic'):
-            return p.tables[1],p.tables[2]
+            if(p.tables[0][0][0] == '' and p.tables[0][0][1] == ''):
+                return [],[]
+
+            if(len(p.tables)>2):
+                return p.tables[1],p.tables[2]
+            else:
+                return p.tables[1],[]
+            
+
         elif (data_type == 'TransitionRates'):
             if(len(p.tables) < 3):
                 return []

@@ -1,9 +1,9 @@
 
 from selenium.webdriver.common.by import By
-from Reproduce_tables import Reproduce_Column_titles,Reproduce_Data
+from Reproduce_tables import Reproduce_Atomic_Tables
 from fetch_Gnd_Truth_Data.Atomic_Data import Get_Atomic_data
-
-import os,ast,itertools
+import numpy as np
+import os,itertools
 
 #Splits a list into two lists at a specific element
 def split_list(lst, val):
@@ -29,110 +29,105 @@ def Remove_Empty_Rows(test_table):
     return test_table_without_empty_rows
 
 
-def perform_testing(gnd_truth_table:tuple, test_table:tuple, path_to_reports_dir:str,Column_titles:list):
+def Check_Missing_Rows_and_Columns(gndTruth_table:list, test_table:list):
 
-    #Get the groud truth tables
-    gndTruth_Energy_table = gnd_truth_table[0]
-    gndTruth_TREnergy_table = gnd_truth_table[1]
+    missing_rows = False
+    missing_columns = False
 
+    missing_rows = (len(gndTruth_table) != len(test_table))
 
-    #Get the test tables
-    test_Energy_table = test_table[0]
-    test_TREnergy_table = test_table[1]
+    ColumnTitles_gndTruth = gndTruth_table[0]
+    ColumnTitles_test = test_table[0]
 
-    #Remove empty rows if any from the test tables
-    # test_Energy_table = Remove_Empty_Rows(test_Energy_table)
-    # test_TREnergy_table = Remove_Empty_Rows(test_TREnergy_table)
+    missing_cols = (len(ColumnTitles_gndTruth) != len(ColumnTitles_test))
 
-    for i in range(0,len(Column_titles)):
-        Column_titles[i] = Column_titles[i].replace("\n","").replace("Ref","")
-
-    Column_titles = split_list(Column_titles,"Lifetime (s)")
-
-    Column_titles[0].append("Lifetime (s)")
-    Energies_Column_titles =  Column_titles[0]
-    TransitionEnergy_Column_titles = Column_titles[1]
-
-    mismatched_Energies_data = []
-    for gndTruth_row, test_row in zip(gndTruth_Energy_table,test_Energy_table):
-        
-        state = gndTruth_row[0]
-        diff = set(gndTruth_row).difference(set(test_row))
-        
-        if(len(diff) > 0):
-            diff_data_to_report = []
-            diff = list(diff)
-            
-            for j in range(0,len(diff)):
-                value_v2 = diff[j]
-                id = gndTruth_row.index(value_v2)
-                Column_title = (Energies_Column_titles[id]).replace("\n","")
-                Column_title = Column_title.replace("info","")
-                value_v3 = test_row[id]
-                diff_data_to_report.append([value_v3,value_v2,Column_title])
-            mismatched_Energies_data.append([state,diff_data_to_report])
+    return missing_rows, missing_cols
 
 
-    mismatched_TREnergies_data = []
-    for gndTruth_row, test_row in zip(gndTruth_TREnergy_table,test_TREnergy_table):
-        
-        Transition = gndTruth_row[0]
-        diff = set(gndTruth_row).difference(set(test_row))
-        
-        if(len(diff) > 0):
-            diff_data_to_report = []
-            diff = list(diff)
-            
-            for j in range(0,len(diff)):
-                value_v2 = diff[j]
-                id = gndTruth_row.index(value_v2)
-                Column_title = (TransitionEnergy_Column_titles[id]).replace("\n","")
-                Column_title = Column_title.replace("info","")
-                value_v3 = test_row[id]
-                diff_data_to_report.append([value_v3,value_v2,Column_title])
-            mismatched_TREnergies_data.append([Transition,diff_data_to_report])
+def Compare_tables(gndTruth_table,test_table,file,table_type):
+     #Stores information about the mismatched data
+    mismatched_data = []
 
-    report_path = os.path.join(path_to_reports_dir, 'Atomic_report.txt')
+    #Separate the columns and the actual table data
+    gndTruth_table_Column_titles = gndTruth_table[0]
+    test_table_Column_titles = test_table[0]
 
-    with open(report_path, 'w') as file: 
-        if(len(mismatched_Energies_data)==0):
-            file.write("No mismatches between the ground truth and test Energies data")
+    gndTruth_table_data = gndTruth_table[1]
+    test_table_data =test_table[1:]
+     
+    missing_rows, missing_cols = Check_Missing_Rows_and_Columns(gndTruth_table_data,test_table_data)
+
+    if(missing_rows):
+        file.write("\n->Missing rows in test data table: "+ table_type + "\n")
+        file.write("->Table not tested")
+        file.write("\n--------------------------------------------------------------------------------------------------------------\n")
+    
+    elif(missing_cols):
+        file.write("->Missing columns in test data table: "+ table_type + "\n")
+        file.write("->Table not tested")
+        file.write("\n--------------------------------------------------------------------------------------------------------------\n")
+
+    else:
+        #Testing the Table
+        for gndTruth_row, test_row in zip(gndTruth_table_data,test_table_data):
+            state = test_row[0]    
+            diff = set(gndTruth_row).difference(set(test_row))
+
+            if(len(diff)>0):
+                diff_data_to_report = []
+                diff = list(diff)
+                
+                for j in range(0,len(diff)):
+                    value_v2 = diff[j]
+                    id = gndTruth_row.index(value_v2)
+                    Column_title = (gndTruth_table_Column_titles[id]).replace("\n","")
+                    value_v3 = test_row[id]
+                    diff_data_to_report.append([value_v3,value_v2,Column_title])
+                mismatched_data.append([state,diff_data_to_report])
+
+        file.write("\n\nResult for table: "+ table_type+ "\n")
+        if(len(mismatched_data)==0):
+            file.write("No mismatches between the ground truth and test data")
         else:
-            file.write("Mismatches in the Energies Table:\n")
             file.write("\nState\t\t\tColumn\t\t\t\t\t\tValue in V3(Test)\t\t\tValue in V2(Ground Truth)")
             file.write("\n--------------------------------------------------------------------------------------------------------------")
-            for mismatched_row in mismatched_Energies_data:
+            for mismatched_row in mismatched_data:
                 state = mismatched_row[0]
                 diff_data_to_report = mismatched_row[1]
-            
-                for row in diff_data_to_report:
-                    value_v3 = row[0]
-                    value_v2 = row[1]
-                    Column_title = row[2]
-                    file.write("\n"+state+"\t\t"+Column_title+"\t\t\t\t\t\t\t"+value_v3+"\t\t\t\t\t\t\t\t"+value_v2)
-
-        file.write("\n=================================================================================================================\n\n")
-
-        if(len(mismatched_TREnergies_data)==0):
-            file.write("No mismatches between the ground truth and test Transition Energies data")
-        else:
-            file.write("Mismatches in the Transition Energies Table:\n")
-            file.write("Transition\t\t\tColumn\t\t\t\t\t\tValue in V3(Test)\t\t\tValue in V2(Ground Truth)")
-            file.write("\n--------------------------------------------------------------------------------------------------------------")
-            for mismatched_row in mismatched_TREnergies_data:
-                Transition = mismatched_row[0]
-                diff_data_to_report = mismatched_row[1]
-            
+                
                 for row in diff_data_to_report:
                     value_v3 = row[0].replace("\n","")
                     value_v2 = row[1].replace("\n","")
                     Column_title = row[2]
-                    if("Matrix element" in Column_title or "Transition rate" in Column_title):
-                        file.write("\n"+Transition+"\t\t"+Column_title+"\t\t\t\t"+value_v3+"\t\t\t\t\t\t\t"+value_v2)
-                    else:
-                        file.write("\n"+Transition+"\t\t"+Column_title+"\t\t\t\t\t\t"+value_v3+"\t\t\t\t\t\t\t"+value_v2)
+                    file.write("\n"+state+"\t\t"+Column_title+"\t\t\t\t\t\t\t"+value_v3+"\t\t\t\t\t\t\t"+value_v2)
 
-        file.write("\n--------------------------------------------------------------------------------------------------------------")
+            file.write("\n--------------------------------------------------------------------------------------------------------------")
+
+
+    return
+
+
+
+#Drive the testing of tables
+def perform_testing(gnd_truth_table:list, test_table:list, path_to_reports_dir:str):
+
+    report_path = os.path.join(path_to_reports_dir, 'Atomic_report.txt')
+
+    #Get the groud truth tables and the Column titles
+    gndTruth_table1 = gnd_truth_table[0]
+    gndTruth_table2 = gnd_truth_table[1]
+
+    #Get the test tables and the column titles
+    test_table1 = test_table[0]
+    test_table2 = test_table[1]
+
+    with open(report_path, 'w') as file:
+        Compare_tables(gndTruth_table1,test_table1,file,"Upper")
+
+        if(gndTruth_table2 != [] and test_table2 != []):
+            Compare_tables(gndTruth_table2,test_table2,file,"lower")
+
+        file.close()
 
     return
 
@@ -142,10 +137,10 @@ def perform_testing(gnd_truth_table:tuple, test_table:tuple, path_to_reports_dir
 def test_AtomicData(element,driver,gnd_truth_url,path_to_reports_dir):
 
     #Get the ground truth
-    gndTruth_Energy_Table, gndTruth_TREnergy_Table = Get_Atomic_data(element,gnd_truth_url)
+    gndTruth_Tables = Get_Atomic_data(element,gnd_truth_url)
 
-    if(gndTruth_Energy_Table == [] or gndTruth_TREnergy_Table == []):
-        print("Gnd Truth Data not available!Property not tested...")
+    if(gndTruth_Tables == []):
+        print("Gnd Truth Data not available or does not exist!Property not tested...")
         return
 
     # # Define the URL (Transition rates url for Li1)
@@ -160,45 +155,18 @@ def test_AtomicData(element,driver,gnd_truth_url,path_to_reports_dir):
 
     test_file = element+'test'+'.txt'
 
-    file_path = os.path.join(directory, test_file)
-
     test_data_tables = ''
-    test_table_column_titles = ''
 
     #Fetch the tables from the test version: Version 3
     #The table column titles and the actual data are reproduced separately
-    if(os.path.exists(file_path)):
-        f = open(file_path)
-        test_data_tables = f.read()
-        test_data_tables = ast.literal_eval(test_data_tables)
-        test_table_column_titles = test_data_tables.pop(0)
-    else:
-        test_table_column_titles = Reproduce_Column_titles(driver)
-        test_data_tables = Reproduce_Data(driver)
-        test_data_tables.insert(0,test_table_column_titles)
-        if(test_table_column_titles==[] or test_data_tables==[]):
-            print("Test Data not available!Property not tested...")
-            return
-        
-        with open(file_path, 'w') as file: 
-            file.write(str(test_data_tables))
 
-    Test_Energy_Table = []
-    Test_TREnergy_Table = []
+    test_data_tables = Reproduce_Atomic_Tables(driver)
 
-   
-    #Separate out the Energies table and the Transition Energies table
-    for test_row in test_data_tables:
-        temp_list = [x for x in test_row[0]]
-        Transition_Present = False
-        for ch in temp_list:
-            if(ord(ch) == 8722):
-                Transition_Present = True
-                break
-        if(Transition_Present):
-            Test_TREnergy_Table.append(test_row)     
-        else:
-            Test_Energy_Table.append(test_row)
+    if( test_data_tables==[]):
+        print("Test Data not available or does not exist!Property not tested...")
+        return
 
     #Perform the testing
-    perform_testing((gndTruth_Energy_Table,gndTruth_TREnergy_Table),(Test_Energy_Table,Test_TREnergy_Table),path_to_reports_dir,test_table_column_titles)
+    perform_testing(gndTruth_Tables,test_data_tables,path_to_reports_dir)
+
+    return

@@ -11,7 +11,7 @@ from test_scripts.Polarizability_Script import test_PolarizabilityData
 from test_scripts.AtomicData_Script import test_AtomicData
 from elements import element_data
 
-import sys,os
+import os
 
 
 
@@ -48,9 +48,10 @@ gnd_truth_url = 'https://www1.udel.edu/atom/'
 
 #element = input("Enter the element to whose data should be tested: ")
 
-# element = "Pr"
-
 # charge_vals = element_data(element,"charge value")
+
+# if(type(charge_vals) == list):
+#     charge_vals = charge_vals[0]
 
 # element = element + str(charge_vals)
 
@@ -60,9 +61,7 @@ gnd_truth_url = 'https://www1.udel.edu/atom/'
 # if(os.path.exists(path_to_reports_dir) == False):
 #     os.mkdir(path_to_reports_dir)
 
-# driver = ''
 
-# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # test_AtomicData(element,driver,gnd_truth_url,path_to_reports_dir)
 
@@ -74,7 +73,6 @@ for element in list_of_elements:
 
     charge_vals = element_data(element,"charge value")
 
-
     if(type(charge_vals)==list):
         for val in charge_vals:
             element_with_charge = element + str(val)
@@ -82,7 +80,7 @@ for element in list_of_elements:
 
             if(os.path.exists(path_to_reports_dir) == False):
                 os.mkdir(path_to_reports_dir)
-
+            
             test_properties(element_with_charge,gnd_truth_url,path_to_reports_dir)
 
     else:
@@ -95,8 +93,7 @@ for element in list_of_elements:
 
         test_properties(element,gnd_truth_url,path_to_reports_dir)
 
-    print("\nCheck the reports/"+element,"directory for generated reports")
-
+print("Testing complete!! Check the reports directory for generated reports...")
 
 # sys.exit()
 

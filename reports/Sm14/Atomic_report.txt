@@ -1,0 +1,170 @@
+
+
+Result for table: Upper
+
+State			Column						Value in V3(Test)			Value in V2(Ground Truth)
+--------------------------------------------------------------------------------------------------------------
+5s24f 2F5/2		State							5s24f 2F5/2							   5s^24f  ^2F5/2 
+5s24f 2F5/2		( lambda )														 
+5s4f2 2H9/2		State							5s4f2 2H9/2							   5s^24f  ^2F7/2 
+5s4f2 2H9/2		Energy							33152(950)							6203(100)
+5s4f2 2H9/2		( lambda )							302(8)							1612(28)
+5s4f2 2H9/2		( alpha )-variation sensitivity q														5654
+5s4f2 2H9/2		Enhancement factor K														1.8
+5s4f2 2H9/2		Lifetime							2.78E-03							0.367
+5s24f 2F7/2		Enhancement factor K							1.8							12
+5s24f 2F7/2		Lifetime							3.67E-01							0.133
+5s24f 2F7/2		( alpha )-variation sensitivity q							5654							123621
+5s24f 2F7/2		State							5s24f 2F7/2							   5s4f^2  ^4H7/2 
+5s24f 2F7/2		( lambda )							1612(28)							494(22)
+5s24f 2F7/2		Energy							6203(100)							20254(940)
+5s4f2 4H7/2		State							5s4f2 4H7/2							   5s4f^2  ^4H9/2 
+5s4f2 4H7/2		Energy							20254(940)							22519(950)
+5s4f2 4H7/2		Enhancement factor K							12							11
+5s4f2 4H7/2		( lambda )							494(22)							444(18)
+5s4f2 4H7/2		( alpha )-variation sensitivity q							123621							125397
+5s4f2 4H7/2		Lifetime							1.33E-01							0.141
+5s4f2 4H9/2		State							5s4f2 4H9/2							   5s4f^2  ^4H11/2 
+5s4f2 4H9/2		Energy							22519(950)							25904(980)
+5s4f2 4H9/2		Enhancement factor K							11							10
+5s4f2 4H9/2		( alpha )-variation sensitivity q							125397							128875
+5s4f2 4H9/2		Lifetime							1.41E-01							0.576
+5s4f2 4H9/2		( lambda )							444(18)							386(14)
+5s4f2 4H11/2		( lambda )							386(14)							342(10)
+5s4f2 4H11/2		State							5s4f2 4H11/2							   5s4f^2  ^4F3/2 
+5s4f2 4H11/2		Enhancement factor K							10							8.5
+5s4f2 4H11/2		Lifetime							5.76E-01							6.74 (  10^-3 )
+5s4f2 4H11/2		( alpha )-variation sensitivity q							128875							124872
+5s4f2 4H11/2		Energy							25904(980)							29249(900)
+5s4f2 4F3/2		State							5s4f2 4F3/2							   5s4f^2  ^4H13/2 
+5s4f2 4F3/2		( alpha )-variation sensitivity q							124872							 
+5s4f2 4F3/2		Energy							29249(900)							29727(1000)
+5s4f2 4F3/2		Lifetime							6.74E-03							0.597
+5s4f2 4F3/2		( lambda )							342(10)							336(11)
+5s4f2 4H13/2		( lambda )							336(11)							325(9)
+5s4f2 4H13/2		( alpha )-variation sensitivity q														 
+5s4f2 4H13/2		Lifetime							5.97E-01							9.62 (  10^-3 )
+5s4f2 4H13/2		Energy							29727(1000)							30739(900)
+5s4f2 4H13/2		State							5s4f2 4H13/2							   5s4f^2  ^4F5/2 
+5s4f2 4F5/2		( alpha )-variation sensitivity q														 
+5s4f2 4F5/2		Energy							30739(900)							32786(920)
+5s4f2 4F5/2		State							5s4f2 4F5/2							   5s4f^2  ^4F7/2 
+5s4f2 4F5/2		Lifetime							9.62E-03							1.20 (  10^-2 )
+5s4f2 4F5/2		( lambda )							325(9)							305(8)
+5s4f2 4F7/2		( lambda )							305(8)							302(8)
+5s4f2 4F7/2		State							5s4f2 4F7/2							   5s4f^2  ^2H9/2 
+5s4f2 4F7/2		( alpha )-variation sensitivity q														 
+5s4f2 4F7/2		Lifetime							1.2E-02							2.78 (  10^-3 )
+5s4f2 4F7/2		Energy							32786(920)							33152(950)
+5s4f2 4F9/2		Lifetime							9.61E-03							9.61 (  10^-3 )
+5s4f2 4F9/2		State							5s4f2 4F9/2							   5s4f^2  ^4F9/2  
+5s4f2 4F9/2		( alpha )-variation sensitivity q														 
+5s4f2 2G7/2		State							5s4f2 2G7/2							   5s4f^2  ^2G7/2 
+5s4f2 2G7/2		( alpha )-variation sensitivity q														 
+5s4f2 2G7/2		Lifetime							5.31E-04							5.31 (  10^-4 )
+5s4f2 2H11/2		State							5s4f2 2H11/2							   5s4f^2  ^2H11/2 
+5s4f2 2H11/2		Lifetime							2.07E-01							0.207
+5s4f2 2H11/2		( alpha )-variation sensitivity q														 
+5s4f2 2F5/2		Lifetime							3.19E-04							3.19 (  10^-4 )
+5s4f2 2F5/2		( alpha )-variation sensitivity q														 
+5s4f2 2F5/2		State							5s4f2 2F5/2							   5s4f^2  ^2F5/2 
+--------------------------------------------------------------------------------------------------------------
+
+Result for table: lower
+
+State			Column						Value in V3(Test)			Value in V2(Ground Truth)
+--------------------------------------------------------------------------------------------------------------
+5s24f 2F7/2−5s24f 2F5/2		Transition							5s24f 2F7/2−5s24f 2F5/2							   5s^24f  ^2F7/2 - 5s^24f  ^2F5/2 
+5s24f 2F7/2−5s24f 2F5/2		Matrix element							1.84102							1.84102 ( muB )
+5s24f 2F7/2−5s24f 2F5/2		Transition							5s24f 2F7/2−5s24f 2F5/2							   5s^24f  ^2F7/2 - 5s^24f  ^2F5/2 
+5s24f 2F7/2−5s24f 2F5/2		Matrix element							0.19504							0.19504 a.u.
+5s24f 2F7/2−5s24f 2F5/2		Transition rate							0.000004891							4.891 (  10^-6 )
+5s4f2 4H7/2−5s24f 2F5/2		Matrix element							0.00188							0.00188 a.u.
+5s4f2 4H7/2−5s24f 2F5/2		Transition							5s4f2 4H7/2−5s24f 2F5/2							   5s4f^2  ^4H7/2 - 5s^24f  ^2F5/2 
+5s4f2 4H7/2−5s24f 2F7/2		Matrix element							0.00027							0.00027 a.u.
+5s4f2 4H7/2−5s24f 2F7/2		Transition rate							0.04949							4.949 (  10^-2 )
+5s4f2 4H7/2−5s24f 2F7/2		Transition							5s4f2 4H7/2−5s24f 2F7/2							   5s4f^2  ^4H7/2 - 5s^24f  ^2F7/2 
+5s4f2 4H9/2−5s24f 2F7/2		Transition							5s4f2 4H9/2−5s24f 2F7/2							   5s4f^2  ^4H9/2 - 5s^24f  ^2F7/2 
+5s4f2 4H9/2−5s24f 2F7/2		Matrix element							0.00275							0.00275 a.u.
+5s4f2 4H9/2−5s4f2 4H7/2		Transition rate							0.4654							4.654 (  10^-1  )
+5s4f2 4H9/2−5s4f2 4H7/2		Matrix element							3.85331							3.85331 ( muB )
+5s4f2 4H9/2−5s4f2 4H7/2		Transition							5s4f2 4H9/2−5s4f2 4H7/2							   5s4f^2  ^4H9/2 - 5s4f^2  ^4H7/2 
+5s4f2 4H11/2−5s4f2 4H9/2		Matrix element							4.46125							4.46125 ( muB )
+5s4f2 4H11/2−5s4f2 4H9/2		Transition							5s4f2 4H11/2−5s4f2 4H9/2							   5s4f^2  ^4H11/2 - 5s4f^2  ^4H9/2 
+5s4f2 4F3/2−5s24f 2F5/2		Transition rate							148.4							1.484 (  10^2 )
+5s4f2 4F3/2−5s24f 2F5/2		Matrix element							0.00342							0.00342 a.u.
+5s4f2 4F3/2−5s24f 2F5/2		Transition							5s4f2 4F3/2−5s24f 2F5/2							   5s4f^2  ^4F3/2 - 5s^24f  ^2F5/2  
+5s4f2 4F3/2−5s4f2 4H7/2		Transition rate							0.0002906							2.906 (  10^-4  )
+5s4f2 4F3/2−5s4f2 4H7/2		Transition							5s4f2 4F3/2−5s4f2 4H7/2							   5s4f^2  ^4F3/2 - 5s4f^2  ^4H7/2 
+5s4f2 4F3/2−5s4f2 4H7/2		Matrix element							0.41986							0.41986 a.u.
+5s4f2 4H13/2−5s4f2 4H11/2		Matrix element							3.9452							3.94520 ( muB )
+5s4f2 4H13/2−5s4f2 4H11/2		Transition							5s4f2 4H13/2−5s4f2 4H11/2							   5s4f^2  ^4H13/2 - 5s4f^2  ^4H11/2 
+5s4f2 4F5/2−5s24f 2F5/2		Transition							5s4f2 4F5/2−5s24f 2F5/2							   5s4f^2  ^4F5/2 - 5s^24f  ^2F5/2   
+5s4f2 4F5/2−5s24f 2F5/2		Matrix element							0.00293							0.00293 a.u.
+5s4f2 4F5/2−5s24f 2F5/2		Transition rate							84.26							8.426 (  10^1 )
+5s4f2 4F5/2−5s24f 2F7/2		Matrix element							0.00198							0.00198 a.u.
+5s4f2 4F5/2−5s24f 2F7/2		Transition rate							19.56							1.956 (  10^1 )
+5s4f2 4F5/2−5s24f 2F7/2		Transition							5s4f2 4F5/2−5s24f 2F7/2							   5s4f^2  ^4F5/2 - 5s^24f  ^2F7/2    
+5s4f2 4F5/2−5s4f2 4F3/2		Matrix element							3.02227							3.02227 ( muB )
+5s4f2 4F5/2−5s4f2 4F3/2		Transition							5s4f2 4F5/2−5s4f2 4F3/2							   5s4f^2  ^4F5/2 - 5s4f^2  ^4F3/2    
+5s4f2 4F5/2−5s4f2 4F3/2		Transition rate							0.1358							1.358 (  10^-1 )
+5s4f2 4F7/2−5s24f 2F5/2		Matrix element							0.0028							0.00280 a.u.
+5s4f2 4F7/2−5s24f 2F5/2		Transition rate							69.93							6.993 (  10^1 )
+5s4f2 4F7/2−5s24f 2F5/2		( lambda )							305							305.0
+5s4f2 4F7/2−5s24f 2F5/2		Transition							5s4f2 4F7/2−5s24f 2F5/2							   5s4f^2  ^4F7/2 - 5s^24f  ^2F5/2    
+5s4f2 4F7/2−5s24f 2F7/2		Transition							5s4f2 4F7/2−5s24f 2F7/2							   5s4f^2  ^4F7/2 - 5s^24f  ^2F7/2    
+5s4f2 4F7/2−5s24f 2F7/2		Transition rate							12.92							1.292 (  10^1 )
+5s4f2 4F7/2−5s24f 2F7/2		Matrix element							0.00165							0.00165 a.u.
+5s4f2 4F7/2−5s4f2 4H7/2		Transition							5s4f2 4F7/2−5s4f2 4H7/2							   5s4f^2  ^4F7/2 - 5s4f^2  ^4H7/2    
+5s4f2 4F7/2−5s4f2 4H7/2		Transition rate							0.2011							2.011 (  10^-1 )
+5s4f2 4F7/2−5s4f2 4H7/2		Matrix element							0.17406							0.17406 ( muB )
+5s4f2 4F7/2−5s4f2 4H7/2		( lambda )							798							798.0
+5s4f2 4F7/2−5s4f2 4F5/2		Matrix element							3.45759							3.45759 ( muB )
+5s4f2 4F7/2−5s4f2 4F5/2		Transition rate							0.3457							3.457 (  10^-1 )
+5s4f2 4F7/2−5s4f2 4F5/2		Transition							5s4f2 4F7/2−5s4f2 4F5/2							   5s4f^2  ^4F7/2 - 5s4f^2  ^4F5/2    
+5s4f2 2H9/2−5s24f 2F7/2		Transition rate							356.5							3.565 (  10^2 )
+5s4f2 2H9/2−5s24f 2F7/2		Transition							5s4f2 2H9/2−5s24f 2F7/2							   5s4f^2  ^2H9/2 - 5s^24f  ^2F7/2    
+5s4f2 2H9/2−5s4f2 4H7/2		Transition							5s4f2 2H9/2−5s4f2 4H7/2							   5s4f^2  ^2H9/2 - 5s4f^2  ^4H7/2    
+5s4f2 2H9/2−5s4f2 4H7/2		Matrix element							0.6835							0.68350 ( muB )
+5s4f2 4F9/2−5s24f 2F7/2		Transition rate							101.4							1.014 (  10^2 )
+5s4f2 4F9/2−5s24f 2F7/2		Transition							5s4f2 4F9/2−5s24f 2F7/2							   5s4f^2  ^4F9/2 - 5s^24f  ^2F7/2    
+5s4f2 4F9/2−5s24f 2F7/2		Matrix element							0.00461							0.00461 a.u.
+5s4f2 4F9/2−5s4f2 4H7/2		Transition							5s4f2 4F9/2−5s4f2 4H7/2							   5s4f^2  ^4F9/2 - 5s4f^2  ^4H7/2    
+5s4f2 4F9/2−5s4f2 4H7/2		Matrix element							0.47324							0.47324 ( muB )
+5s4f2 4F9/2−5s4f2 4H9/2		Transition							5s4f2 4F9/2−5s4f2 4H9/2							   5s4f^2  ^4F9/2 - 5s4f^2  ^4H9/2    
+5s4f2 4F9/2−5s4f2 4H9/2		Transition rate							0.5125							5.125 (  10^-1 )
+5s4f2 4F9/2−5s4f2 4H9/2		Matrix element							0.31751							0.31751 ( muB )
+5s4f2 4F9/2−5s4f2 4F7/2		Matrix element							2.17854							2.17854 ( muB )
+5s4f2 4F9/2−5s4f2 4F7/2		Transition rate							0.116							1.160 (  10^-1 )
+5s4f2 4F9/2−5s4f2 4F7/2		Transition							5s4f2 4F9/2−5s4f2 4F7/2							   5s4f^2  ^4F9/2 - 5s4f^2  ^4F7/2    
+5s4f2 2G7/2−5s24f 2F5/2		Transition rate							1481							1.481 (  10^3 )
+5s4f2 2G7/2−5s24f 2F5/2		Transition							5s4f2 2G7/2−5s24f 2F5/2							   5s4f^2  ^2G7/2 - 5s^24f  ^2F5/2    
+5s4f2 2G7/2−5s24f 2F5/2		Matrix element							0.00971							0.00971 a.u.
+5s4f2 2G7/2−5s24f 2F7/2		Transition							5s4f2 2G7/2−5s24f 2F7/2							   5s4f^2  ^2G7/2 - 5s^24f  ^2F7/2    
+5s4f2 2G7/2−5s24f 2F7/2		Transition rate							396.6							3.966 (  10^2 )
+5s4f2 2G7/2−5s24f 2F7/2		Matrix element							0.00649							0.00649 a.u.
+5s4f2 2G7/2−5s4f2 4H7/2		Matrix element							0.36685							0.36685 ( muB )
+5s4f2 2G7/2−5s4f2 4H7/2		Transition							5s4f2 2G7/2−5s4f2 4H7/2							   5s4f^2  ^2G7/2 - 5s4f^2  ^4H7/2    
+5s4f2 2G7/2−5s4f2 4H7/2		Matrix element							0.05278							0.05278 ( muB )
+5s4f2 2G7/2−5s4f2 4H7/2		Transition rate							0.0001049							1.049 (  10^-4 )
+5s4f2 2G7/2−5s4f2 4H7/2		Transition							5s4f2 2G7/2−5s4f2 4H7/2							   5s4f^2  ^2G7/2 - 5s4f^2  ^4H7/2    
+5s4f2 2G7/2−5s4f2 4H9/2		Matrix element							0.31357							0.31357 ( muB )
+5s4f2 2G7/2−5s4f2 4H9/2		Transition							5s4f2 2G7/2−5s4f2 4H9/2							   5s4f^2  ^2G7/2 - 5s4f^2  ^4H9/2   
+5s4f2 2H11/2−5s4f2 4H9/2		Transition rate							0.5309							5.309 (  10^-1 )
+5s4f2 2H11/2−5s4f2 4H9/2		Transition							5s4f2 2H11/2−5s4f2 4H9/2							   5s4f^2  ^2H11/2 - 5s4f^2  ^4H9/2    
+5s4f2 2H11/2−5s4f2 4H9/2		Matrix element							0.20464							0.20464 ( muB )
+5s4f2 2H11/2−5s4f2 4H13/2		Matrix element							0.6132							0.61320 ( muB )
+5s4f2 2H11/2−5s4f2 4H13/2		Transition							5s4f2 2H11/2−5s4f2 4H13/2							   5s4f^2  ^2H11/2 - 5s4f^2  ^4H13/2   
+5s4f2 2H11/2−5s4f2 4H9/2		Matrix element							1.62592							1.62592 ( muB )
+5s4f2 2H11/2−5s4f2 4H9/2		Transition							5s4f2 2H11/2−5s4f2 4H9/2							   5s4f^2  ^2H11/2 - 5s4f^2  ^2H9/2    
+5s4f2 2H11/2−5s4f2 4F9/2		Matrix element							1.66384							1.66384 ( muB )
+5s4f2 2H11/2−5s4f2 4F9/2		Transition							5s4f2 2H11/2−5s4f2 4F9/2							   5s4f^2  ^2H11/2 - 5s4f^2  ^4F9/2    
+5s4f2 2F5/2−5s24f 2F5/2		Transition							5s4f2 2F5/2−5s24f 2F5/2							   5s4f^2  ^2F5/2 - 5s^24f  ^2F5/2    
+5s4f2 2F5/2−5s24f 2F5/2		Matrix element							0.01101							0.01101 a.u.
+5s4f2 2F5/2−5s24f 2F5/2		Transition rate							3062							3.062 (  10^3 )
+5s4f2 2F5/2−5s24f 2F7/2		Transition							5s4f2 2F5/2−5s24f 2F7/2							   5s4f^2  ^2F5/2 - 5s^24f  ^2F7/2    
+5s4f2 2F5/2−5s24f 2F7/2		Matrix element							0.00214							0.00214 a.u.
+5s4f2 2F5/2−5s24f 2F7/2		Transition rate							71.4							7.140 (  10^1 )
+5s4f2 2F5/2−5s4f2 4F3/2		Transition							5s4f2 2F5/2−5s4f2 4F3/2							   5s4f^2  ^2F5/2 - 5s4f^2  ^4F3/2    
+5s4f2 2F5/2−5s4f2 4F3/2		Matrix element							0.43453							0.43453 ( muB )
+--------------------------------------------------------------------------------------------------------------

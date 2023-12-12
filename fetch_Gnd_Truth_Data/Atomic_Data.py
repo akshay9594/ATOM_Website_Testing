@@ -11,6 +11,7 @@ import utils
 data_type = 'Atomic'
 
 
+#Actual fetching routine
 def fetch_Atomic_tables(atom,url):
 
     gndTruth_file = atom + 'hci.html'
@@ -19,30 +20,46 @@ def fetch_Atomic_tables(atom,url):
 
     return Energies_Table,TREnergies_Table
 
+
+#The ground truth table has latex characters. These characters need to be removed.
+def table_cleanup(table):
+    Modified_gndTruth_Table = []
+
+    for i in range(0,len(table)):
+        temp_row = table[i]
+        exclude = '\\'
+
+        for i in range(0,len(temp_row)):
+
+            temp_row[i] = re.sub('[{$_}]', '', temp_row[i])
+
+            temp_row[i] = re.sub("times", '', temp_row[i])
+
+            temp_row[i] = re.sub("Ref", '', temp_row[i])
+
+            temp_row[i] = ''.join(ch for ch in temp_row[i] if ch not in exclude)
+
+        Modified_gndTruth_Table.append(temp_row)
+
+    #Modified_gndTruth_Table[2:] is temporary and should be changed.
+    #This special casing is because of the separate row of units in the ground truth table.
+    Modified_gndTruth_Table = [Modified_gndTruth_Table[0],Modified_gndTruth_Table[2:]]
+
+    return Modified_gndTruth_Table
+
+
+#Get the atomic data tables
 def Get_Atomic_data(atom,gnd_truth_url):
 
-    gndTruth_Energy_Table,gndTruth_TREnergy_Table = fetch_Atomic_tables(atom,gnd_truth_url)
+    gndTruth_Table1,gndTruth_Table2 = fetch_Atomic_tables(atom,gnd_truth_url)
 
-    if(gndTruth_Energy_Table == [] or gndTruth_TREnergy_Table == []):
-        return [],[]
-    else:
-        gndTruth_Energy_Table = gndTruth_Energy_Table[2:]
-        exclude = '\\'
-        for row in gndTruth_Energy_Table:
-            for i in range(0,len(row)):
-                #row[i] = row[i].replace("$","").replace("_","").replace("{","").replace("}","")
+    if(gndTruth_Table1 == [] and gndTruth_Table2 == []):
+        return []
 
-                row[i] = re.sub('[{$times_}]', '', row[i])
+    #Remove unwanted and problematic latex characters the tables
+    gndTruth_Table1 = table_cleanup(gndTruth_Table1)
 
-                row[i] = ''.join(ch for ch in row[i] if ch not in exclude)
+    if(gndTruth_Table2 != []):    
+        gndTruth_Table2 = table_cleanup(gndTruth_Table2)
 
-        gndTruth_TREnergy_Table = gndTruth_TREnergy_Table[2:]
-
-        for row in gndTruth_TREnergy_Table:
-            for i in range(0,len(row)):
-                #row[i] = row[i].replace("$","").replace("_","").replace("{","").replace("}","")
-
-                row[i] = re.sub('[{$times_}]', '', row[i])
-                row[i] = ''.join(ch for ch in row[i] if ch not in exclude)
-
-        return gndTruth_Energy_Table, gndTruth_TREnergy_Table
+    return [gndTruth_Table1, gndTruth_Table2]
