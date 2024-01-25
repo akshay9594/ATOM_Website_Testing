@@ -1,5 +1,5 @@
 Gnd Truth		Test		Mismatches(Not displayed as in version 2)
-['Isotopeinfo', 'Half-life info', 'Natural abundance (%) info', 'Nuclear spin', 'Rms radii (fm) info', 'Magnetic moment (μ N ) info', 'Quadrupole moment (b) info']	['Half-life\ninfo', 'Natural abundance (%)\ninfo', 'Nuclear spin', 'Rms radii (fm)\ninfo', 'Magnetic moment (μN)\ninfo']	{'Half-life info', 'Rms radii (fm) info', 'Quadrupole moment (b) info', 'Isotopeinfo', 'Natural abundance (%) info', 'Magnetic moment (μ N ) info'}
+['Isotopeinfo', 'Half-life info', 'Natural abundance (%) info', 'Nuclear spin', 'Rms radii (fm) info', 'Magnetic moment (μ N ) info', 'Quadrupole moment (b) info']	['Half-life\ninfo', 'Natural abundance (%)\ninfo', 'Nuclear spin', 'Rms radii (fm)\ninfo', 'Magnetic moment (μN)\ninfo']	{'Quadrupole moment (b) info', 'Natural abundance (%) info', 'Half-life info', 'Magnetic moment (μ N ) info', 'Rms radii (fm) info', 'Isotopeinfo'}
 ['136Ce', 'Stable', '0.185 (2)', '0', '4.8739(18)', '', '']	['Stable', '0.185 (2)', '0', '4.8739(18)', '']	{'136Ce'}
 ['137Ce', '9.0 h', '', '3/2', '', '0.96(4)', '']	['9.0 h', '', '3/2', '', '0.96(4)']	{'137Ce'}
 ['138Ce', 'Stable', '0.251 (2)', '0', '4.8737(18)', '', '']	['Stable', '0.251 (2)', '0', '4.8737(18)', '']	{'138Ce'}

@@ -11,7 +11,7 @@ from test_scripts.Polarizability_Script import test_PolarizabilityData
 from test_scripts.AtomicData_Script import test_AtomicData
 from elements import element_data
 
-import os
+import os,sys
 
 
 
@@ -38,6 +38,9 @@ def test_properties(element,gnd_truth_url,path_to_reports_dir):
     print("\n6. Atomic")
     test_AtomicData(element,driver,gnd_truth_url,path_to_reports_dir)
 
+    # print("\n6. Polarizability")
+    # test_PolarizabilityData(element,driver,gnd_truth_url,path_to_reports_dir)
+
     driver.close()
 
     return
@@ -46,28 +49,9 @@ def test_properties(element,gnd_truth_url,path_to_reports_dir):
 gnd_truth_url = 'https://www1.udel.edu/atom/'
 
 
-#element = input("Enter the element to whose data should be tested: ")
-
-# charge_vals = element_data(element,"charge value")
-
-# if(type(charge_vals) == list):
-#     charge_vals = charge_vals[0]
-
-# element = element + str(charge_vals)
-
-# # print("\n2. Transition Rates")
-# path_to_reports_dir = os.getcwd() + '/reports/' + element
-
-# if(os.path.exists(path_to_reports_dir) == False):
-#     os.mkdir(path_to_reports_dir)
-
-
-
-# test_AtomicData(element,driver,gnd_truth_url,path_to_reports_dir)
-
-# sys.exit()
-
 list_of_elements = element_data("","element list")
+
+Elements_with_testing_complete = []
 
 for element in list_of_elements:
 
@@ -82,6 +66,7 @@ for element in list_of_elements:
                 os.mkdir(path_to_reports_dir)
             
             test_properties(element_with_charge,gnd_truth_url,path_to_reports_dir)
+            Elements_with_testing_complete.append(element_with_charge)
 
     else:
         element = element + str(charge_vals)
@@ -93,14 +78,13 @@ for element in list_of_elements:
 
         test_properties(element,gnd_truth_url,path_to_reports_dir)
 
-print("Testing complete!! Check the reports directory for generated reports...")
+        Elements_with_testing_complete.append(element)
+
+print("\n\nTesting complete!! Check the reports directory for generated reports...")
+print("Testing completed for following elements:")
+
+for ele in Elements_with_testing_complete:
+    print(ele)
+
 
 # sys.exit()
-
-# element = element + str(charge_vals)
-
-# path_to_data = os.getcwd() + '/Data/Polarizability/' + element
-
-# path_to_reports_dir = os.getcwd() + '/reports/' + element
-
-# test_PolarizabilityData(element,path_to_data,path_to_reports_dir)

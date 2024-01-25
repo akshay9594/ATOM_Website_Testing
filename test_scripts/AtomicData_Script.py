@@ -1,7 +1,7 @@
 
 from selenium.webdriver.common.by import By
-from Reproduce_tables import Reproduce_Atomic_Tables
-from fetch_Gnd_Truth_Data.Atomic_Data import Get_Atomic_data
+from Reproduce_tables import Get_Atomic_Test_Data
+from fetch_Gnd_Truth_Data.Atomic_Data import Get_GndTruth_Atomic_data
 import numpy as np
 import os,itertools
 
@@ -137,7 +137,7 @@ def perform_testing(gnd_truth_table:list, test_table:list, path_to_reports_dir:s
 def test_AtomicData(element,driver,gnd_truth_url,path_to_reports_dir):
 
     #Get the ground truth
-    gndTruth_Tables = Get_Atomic_data(element,gnd_truth_url)
+    gndTruth_Tables = Get_GndTruth_Atomic_data(element,gnd_truth_url)
 
     if(gndTruth_Tables == []):
         print("Gnd Truth Data not available or does not exist!Property not tested...")
@@ -160,7 +160,7 @@ def test_AtomicData(element,driver,gnd_truth_url,path_to_reports_dir):
     #Fetch the tables from the test version: Version 3
     #The table column titles and the actual data are reproduced separately
 
-    test_data_tables = Reproduce_Atomic_Tables(driver)
+    test_data_tables = Get_Atomic_Test_Data(driver)
 
     if( test_data_tables==[]):
         print("Test Data not available or does not exist!Property not tested...")

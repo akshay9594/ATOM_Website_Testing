@@ -1,5 +1,9 @@
 
 from selenium.webdriver.common.by import By
+import zipfile,glob
+import webbrowser,shutil,os
+import time, csv
+
 
 #Function to scrape table column titles from the HTML
 def Reproduce_Column_titles(driver):
@@ -37,7 +41,7 @@ def Reproduce_Data(driver):
 #Atomic data tables reproduced in a different way (A better routine than the above two routines)
 # TODO: Replace above two routines with this routine for all element properties.
 
-def Reproduce_Atomic_Tables(driver):
+def Get_Atomic_Test_Data(driver):
 
     Reproduced_tables = []
     WebElement_tables_list = []
@@ -83,3 +87,55 @@ def Reproduce_Atomic_Tables(driver):
         Reproduced_tables.append(table_data)
 
     return Reproduced_tables
+
+
+#Fetches the test data for testing polarizability. The test data here is
+# the Version 3 downloaded data.
+def Get_Polarizability_Test_Data(driver,url,data_directory,element):
+
+    # load the web page
+    driver.get(url)
+
+    driver.implicitly_wait(10)
+
+    test_table_dictionary = {}
+
+    WebElement = ''
+
+    # Find the Download CSV button and click it.
+    try:
+       WebElement = driver.find_element(By.XPATH,'//a[@href="'+"/atom/dev/version3/polarizability-files/Li1Pol.zip"+'"]')
+    except:
+        return test_table_dictionary
+
+    webbrowser.open(WebElement.get_attribute('href'))
+  
+    time.sleep(5)  
+
+    # Download the zip folder and extract the CSV files.
+    path_to_downloaded_zip_folder = data_directory + element + 'Pol.zip'
+
+    path_to_extracted_files = data_directory + element + 'Pol/'
+    if(os.path.exists(path_to_extracted_files) == False):
+        with zipfile.ZipFile(path_to_downloaded_zip_folder, 'r') as zip_ref:
+            zip_ref.extractall(data_directory)
+
+
+        #On MACOS, an extra folder __MACOSX is created after runnin the unzip command.
+        #Remove this folder if present
+        MACOSX_folder = data_directory + '/__MACOSX'
+        if(os.path.exists(MACOSX_folder)):
+            shutil.rmtree(MACOSX_folder)
+
+    #List all the extracted CSV files
+    csv_files = glob.glob(path_to_extracted_files + '*.csv')
+
+    for file_path in csv_files:
+        with open(file_path, mode ='r')as file:
+            file_content = list(csv.reader(file))
+            header = file_content[0]
+            state = header[1]
+            file_content.remove(header)
+            test_table_dictionary[state] = file_content
+
+    return test_table_dictionary

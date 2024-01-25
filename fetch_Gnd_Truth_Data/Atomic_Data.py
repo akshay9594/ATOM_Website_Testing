@@ -49,7 +49,7 @@ def table_cleanup(table):
 
 
 #Get the atomic data tables
-def Get_Atomic_data(atom,gnd_truth_url):
+def Get_GndTruth_Atomic_data(atom,gnd_truth_url):
 
     gndTruth_Table1,gndTruth_Table2 = fetch_Atomic_tables(atom,gnd_truth_url)
 

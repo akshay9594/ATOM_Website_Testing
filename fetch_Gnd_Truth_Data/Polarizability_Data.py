@@ -1,6 +1,6 @@
 
 import os
-import csv
+import csv,glob,re
 
 
 #Preprocessing data to remove white space
@@ -10,45 +10,22 @@ def preprocess(data:list):
             data_list[i] = data_list[i].replace(" ", "")
     return data
 
-def fetchPolarizabilityData(path_to_data):
+def Get_Polarizability_GndTruth_Data(element,path_to_data):
 
-    StaticPol_data = ''
-    Pol_States_data = {}
+    #Change directory to the where the data is placed.
 
-    #Scan the Data directory to get all the files
-    obj = os.scandir(path_to_data)
-    
-    static_pol_file = ''
-    list_pol_states_files = []
+    GndTruth_Data_tables = {}
+    #List all the extracted CSV files
+    csv_files = glob.glob(path_to_data + '*.csv')
 
-    #Go through all the files and separate out the Static Pol file
-    # and the Pol files for states. Get the states Pol files into a list
-    for entry in obj:
-        if entry.is_file():
-            file_name = entry.name
-            if('StaticPol' in file_name):
-                static_pol_file = file_name
-            elif('.DS_Store' not in file_name):
-                list_pol_states_files.append(file_name)
+    for file_path in csv_files:
+        with open(file_path, mode ='r') as file:
+            file_content = list(csv.reader(file))
 
-    path_to_StaticPol_file = path_to_data + '/' + static_pol_file
+        string_with_state = (file_path.split(element+"_"))[1]
+        state_string = (string_with_state.split("_Dynamic_"))[0]
+        state = state_string.replace("_","").replace("-","/")
 
-    #Read the Static Pol data
-    with open(path_to_StaticPol_file, 'r') as file:
-        StaticPol_data = list(csv.reader(file, delimiter=","))
+        GndTruth_Data_tables[state] = file_content
 
-    #Preprocess the Static Pol data to remove white spaces
-    StaticPol_data = preprocess(StaticPol_data)
-
-    #Read the States Pol data into a dictionary. The states form the keys.
-    for state_file_name in list_pol_states_files:
-        path_to_file = path_to_data + '/' + state_file_name
-        with open(path_to_file, 'r') as file:
-            first_line = file.readline()
-            state = first_line.split(",")[1]
-            Pol_data = list(csv.reader(file, delimiter=","))
-            #Preprocess the data to remove white spaces
-            Pol_data = preprocess(Pol_data)
-            Pol_States_data[state] = Pol_data
-
-    return StaticPol_data, Pol_States_data
+    return GndTruth_Data_tables

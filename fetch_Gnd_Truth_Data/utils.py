@@ -51,7 +51,6 @@ def process_TR_ExpData(data:list):
         if(row[0] not in data_dict.keys()):
             row[0] = row[0].replace(" ","")
             data_dict[row[0]] = []
-    
 
     for i in range(0,len(data)):
         row = data[i]
@@ -59,9 +58,12 @@ def process_TR_ExpData(data:list):
 
         row[2] = row[2].replace("Ref", "")
         if(property == 'Lifetime'):
-            if(row[3] != ''):
-                row[3] = row[3].replace(" Ref", "")
-                row = [row[0],row[1],row[2],row[3]]        
+            if(len(row) > 3):
+                if(row[3] != ''):
+                    row[3] = row[3].replace(" Ref", "")
+                    row = [row[0],row[1],row[2],row[3]]        
+                else:
+                    row = [row[0],row[1],row[2]]
             else:
                 row = [row[0],row[1],row[2]]
 
